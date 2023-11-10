@@ -19,14 +19,5 @@ namespace QuanLyQuanCF
         {
             Application.Exit();
         }
-
-        private void fLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("Ban that su muon thoat?","Thong Bao",MessageBoxButtons.YesNo) != DialogResult.Yes)
-            {
-                e.Cancel = true;
-            }
-
-        }
     }
 }

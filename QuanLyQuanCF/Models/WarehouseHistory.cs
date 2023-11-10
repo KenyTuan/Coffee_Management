@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyQuanCF.Models
 {
-    internal class OrderDetail
+    internal class WarehouseHistory
     {
 
     }

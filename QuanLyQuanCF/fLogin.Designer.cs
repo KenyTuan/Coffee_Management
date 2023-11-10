@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
             panel1 = new Panel();
+            linkLabel1 = new LinkLabel();
             label3 = new Label();
             label2 = new Label();
             txtUsername = new TextBox();
@@ -42,6 +44,7 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(linkLabel1);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(txtUsername);
@@ -51,28 +54,38 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(526, 232);
+            panel1.Size = new Size(547, 256);
             panel1.TabIndex = 0;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(50, 155);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(143, 20);
+            linkLabel1.TabIndex = 7;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Bạn quên mật khẩu?";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(38, 116);
+            label3.Location = new Point(13, 116);
             label3.Name = "label3";
-            label3.Size = new Size(69, 17);
+            label3.Size = new Size(71, 17);
             label3.TabIndex = 6;
-            label3.Text = "Password:";
+            label3.Text = "Mật Khẩu:";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(35, 69);
+            label2.Location = new Point(13, 69);
             label2.Name = "label2";
-            label2.Size = new Size(72, 17);
+            label2.Size = new Size(94, 17);
             label2.TabIndex = 5;
-            label2.Text = "Username:";
+            label2.Text = "ID Nhân Viên:";
             // 
             // txtUsername
             // 
@@ -90,43 +103,44 @@
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(303, 167);
+            btnClose.Location = new Point(308, 198);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(94, 29);
             btnClose.TabIndex = 2;
-            btnClose.Text = "Close";
+            btnClose.Text = "Đóng";
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(158, 167);
+            btnLogin.Location = new Point(128, 198);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(94, 29);
             btnLogin.TabIndex = 1;
-            btnLogin.Text = "Login";
+            btnLogin.Text = "Đăng Nhập";
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(223, 12);
+            label1.Dock = DockStyle.Top;
+            label1.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(80, 33);
+            label1.Size = new Size(545, 60);
             label1.TabIndex = 0;
-            label1.Text = "Login";
+            label1.Text = "Đăng Nhập";
+            label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // fLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(549, 254);
+            ClientSize = new Size(571, 280);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "fLogin";
             Text = "Form1";
-            FormClosing += fLogin_FormClosing;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -142,5 +156,6 @@
         private Button btnClose;
         private Button btnLogin;
         private Label label1;
+        private LinkLabel linkLabel1;
     }
 }
