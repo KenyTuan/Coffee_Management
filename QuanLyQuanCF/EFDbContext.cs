@@ -16,13 +16,27 @@ namespace QuanLyQuanCF
         public DbSet<Category> Category { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
+        public DbSet<IngredientOrder> IngredientOrders { get; set; }
 
         public void ConfigureServices(IServiceCollection services) => services.AddDbContext<EFDbContext>();
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer("Server=MSI\\MSSQLSERVER02;Database=DBCF;Trusted_Connection=True;TrustServerCertificate=True;");
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer("Server=MSI\\MSSQLSERVER02;Database=DBCF1;Trusted_Connection=True;TrustServerCertificate=True;");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<IngredientOrder>().HasKey("IngredientOrderID");
+            modelBuilder.Entity<IngredientOrder>().HasKey(o => new {o.IngredientID,o.ProductID});
+
+            modelBuilder.Entity<Ingredient>().HasData(
+                new Ingredient
+                {
+                    IngredientID = 1,
+                    IngredientName = "Hạt Cafe Trung Nguyên",
+                    Amount = 1,
+                    Status = true
+                }
+                );
             modelBuilder.Entity<Customer>().HasData(
                 new Customer
                 {

@@ -17,21 +17,34 @@ namespace QuanLyQuanCF
             InitializeComponent();
         }
 
-        private void customerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuCustomer_Click(object sender, EventArgs e)
         {
+            if (Utility.IsOpeningForm("fManagerCustomer"))
+                return;
             fManagerCustomer f = new fManagerCustomer();
             f.MdiParent = this;
             f.Show();
         }
 
-        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuProduct_Click(object sender, EventArgs e)
         {
-            Close();
+            if (Utility.IsOpeningForm("fManageProduct"))
+                return;
+            fManageProduct f = new fManageProduct();
+            f.MdiParent = this;
+            f.Show();
         }
 
-        private void productToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuLogout_Click(object sender, EventArgs e)
         {
-            fManageProduct f = new fManageProduct();
+            Application.Exit();
+        }
+
+        private void menuIngredient_Click(object sender, EventArgs e)
+        {
+            if (Utility.IsOpeningForm("fManageIngredient"))
+                return;
+            fManageIngredient f = new fManageIngredient();
             f.MdiParent = this;
             f.Show();
         }

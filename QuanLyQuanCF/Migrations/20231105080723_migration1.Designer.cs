@@ -12,8 +12,8 @@ using QuanLyQuanCF;
 namespace QuanLyQuanCF.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    [Migration("20231026113258_migration2")]
-    partial class migration2
+    [Migration("20231105080723_migration1")]
+    partial class migration1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -183,6 +183,63 @@ namespace QuanLyQuanCF.Migrations
                             Point = 0,
                             Status = true
                         });
+                });
+
+            modelBuilder.Entity("QuanLyQuanCF.Models.Ingredient", b =>
+                {
+                    b.Property<int>("IngredientID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IngredientID"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<string>("IngredientName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("IngredientID");
+
+                    b.ToTable("Ingredients");
+
+                    b.HasData(
+                        new
+                        {
+                            IngredientID = 1,
+                            Amount = 1m,
+                            IngredientName = "Hạt Cafe Trung Nguyên",
+                            Status = true
+                        });
+                });
+
+            modelBuilder.Entity("QuanLyQuanCF.Models.IngredientOrder", b =>
+                {
+                    b.Property<int>("IngredientID")
+                        .HasColumnType("int");
+
+                    b.Property<long>("ProductID")
+                        .HasColumnType("bigint");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<decimal>("Capacity")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<long>("IngredientOrderID")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("IngredientID", "ProductID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("IngredientOrders");
                 });
 
             modelBuilder.Entity("QuanLyQuanCF.Models.Product", b =>
@@ -448,6 +505,25 @@ namespace QuanLyQuanCF.Migrations
                         });
                 });
 
+            modelBuilder.Entity("QuanLyQuanCF.Models.IngredientOrder", b =>
+                {
+                    b.HasOne("QuanLyQuanCF.Models.Ingredient", "Ingredient")
+                        .WithMany("IngredientOrders")
+                        .HasForeignKey("IngredientID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("QuanLyQuanCF.Models.Product", "Product")
+                        .WithMany("IngredientOrders")
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ingredient");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("QuanLyQuanCF.Models.Product", b =>
                 {
                     b.HasOne("QuanLyQuanCF.Models.Category", "Category")
@@ -462,6 +538,16 @@ namespace QuanLyQuanCF.Migrations
             modelBuilder.Entity("QuanLyQuanCF.Models.Category", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("QuanLyQuanCF.Models.Ingredient", b =>
+                {
+                    b.Navigation("IngredientOrders");
+                });
+
+            modelBuilder.Entity("QuanLyQuanCF.Models.Product", b =>
+                {
+                    b.Navigation("IngredientOrders");
                 });
 #pragma warning restore 612, 618
         }

@@ -18,6 +18,14 @@ namespace QuanLyQuanCF
             InitializeComponent();
         }
 
+        private void fManagerCustomer_Activated(object sender, EventArgs e)
+        {
+            using (EFDbContext db = new EFDbContext())
+            {
+                dataGridView1.DataSource = db.Customers.ToList();
+            }
+        }
+
         private void btnNew_Click(object sender, EventArgs e)
         {
             if (Utility.IsOpeningForm("fNewCustomer"))
@@ -30,9 +38,9 @@ namespace QuanLyQuanCF
 
         }
 
-        private void btnFind_Click(object sender, EventArgs e)
+        private void txtNameCustomer_TextChanged(object sender, EventArgs e)
         {
-            using (EFDbContext db = new EFDbContext())
+            using (var db = new EFDbContext())
             {
                 dataGridView1.DataSource = db.Customers.Where(c => c.NameCustomer.Contains(txtNameCustomer.Text)).ToList();
             }
@@ -72,14 +80,5 @@ namespace QuanLyQuanCF
 
 
         }
-
-        private void fManagerCustomer_Activated(object sender, EventArgs e)
-        {
-            using (EFDbContext db = new EFDbContext())
-            {
-                dataGridView1.DataSource = db.Customers.ToList();
-            }
-        }
-
     }
 }

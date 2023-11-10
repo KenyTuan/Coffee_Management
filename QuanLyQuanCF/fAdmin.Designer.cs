@@ -28,50 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdmin));
             menuStrip1 = new MenuStrip();
-            customerToolStripMenuItem = new ToolStripMenuItem();
-            productToolStripMenuItem = new ToolStripMenuItem();
-            logOutToolStripMenuItem = new ToolStripMenuItem();
-            toolStripTextBox1 = new ToolStripTextBox();
+            menuSystem = new ToolStripMenuItem();
+            menuCategory = new ToolStripMenuItem();
+            MenuCustomer = new ToolStripMenuItem();
+            menuProduct = new ToolStripMenuItem();
+            menuIngredient = new ToolStripMenuItem();
+            MenuLogout = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { customerToolStripMenuItem, productToolStripMenuItem, toolStripTextBox1, logOutToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { menuSystem, menuCategory, MenuLogout });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1136, 31);
+            menuStrip1.Size = new Size(1136, 29);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
-            // customerToolStripMenuItem
+            // menuSystem
             // 
-            customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            customerToolStripMenuItem.Size = new Size(86, 27);
-            customerToolStripMenuItem.Text = "Customer";
-            customerToolStripMenuItem.Click += customerToolStripMenuItem_Click;
+            menuSystem.AutoSize = false;
+            menuSystem.Image = Properties.Resources.icon_System;
+            menuSystem.Name = "menuSystem";
+            menuSystem.Size = new Size(150, 25);
+            menuSystem.Text = "Hệ Thống";
             // 
-            // productToolStripMenuItem
+            // menuCategory
             // 
-            productToolStripMenuItem.Name = "productToolStripMenuItem";
-            productToolStripMenuItem.Size = new Size(74, 27);
-            productToolStripMenuItem.Text = "Product";
-            productToolStripMenuItem.Click += productToolStripMenuItem_Click;
+            menuCategory.AutoSize = false;
+            menuCategory.DropDownItems.AddRange(new ToolStripItem[] { MenuCustomer, menuProduct, menuIngredient });
+            menuCategory.Image = Properties.Resources.icon_category;
+            menuCategory.Name = "menuCategory";
+            menuCategory.Size = new Size(150, 25);
+            menuCategory.Text = "Danh Mục";
             // 
-            // logOutToolStripMenuItem
+            // MenuCustomer
             // 
-            logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            logOutToolStripMenuItem.Size = new Size(76, 27);
-            logOutToolStripMenuItem.Text = "Log Out";
-            logOutToolStripMenuItem.Click += logOutToolStripMenuItem_Click;
+            MenuCustomer.Image = Properties.Resources.icon_ManageCustomer;
+            MenuCustomer.Name = "MenuCustomer";
+            MenuCustomer.Size = new Size(224, 26);
+            MenuCustomer.Text = "Khách Hàng";
+            MenuCustomer.Click += MenuCustomer_Click;
             // 
-            // toolStripTextBox1
+            // menuProduct
             // 
-            toolStripTextBox1.Name = "toolStripTextBox1";
-            toolStripTextBox1.Size = new Size(100, 27);
-            toolStripTextBox1.Text = "Order";
+            menuProduct.Image = Properties.Resources.icon_ManageProduct;
+            menuProduct.Name = "menuProduct";
+            menuProduct.Size = new Size(224, 26);
+            menuProduct.Text = "Sản Phẩm";
+            menuProduct.Click += menuProduct_Click;
+            // 
+            // menuIngredient
+            // 
+            menuIngredient.Image = Properties.Resources.icon_Ingredient;
+            menuIngredient.Name = "menuIngredient";
+            menuIngredient.Size = new Size(224, 26);
+            menuIngredient.Text = "Nguyên Liệu";
+            menuIngredient.Click += menuIngredient_Click;
+            // 
+            // MenuLogout
+            // 
+            MenuLogout.AutoSize = false;
+            MenuLogout.Image = Properties.Resources.icon_Logout;
+            MenuLogout.Name = "MenuLogout";
+            MenuLogout.Size = new Size(150, 25);
+            MenuLogout.Text = "Đăng Xuất";
+            MenuLogout.Click += MenuLogout_Click;
             // 
             // fAdmin
             // 
@@ -80,10 +106,11 @@
             ClientSize = new Size(1136, 450);
             ControlBox = false;
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
             Name = "fAdmin";
-            Text = "Admin";
+            Text = "Quán Coffee 86";
             WindowState = FormWindowState.Maximized;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -94,9 +121,11 @@
         #endregion
 
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem customerToolStripMenuItem;
-        private ToolStripMenuItem productToolStripMenuItem;
-        private ToolStripMenuItem logOutToolStripMenuItem;
-        private ToolStripTextBox toolStripTextBox1;
+        private ToolStripMenuItem menuSystem;
+        private ToolStripMenuItem menuCategory;
+        private ToolStripMenuItem MenuCustomer;
+        private ToolStripMenuItem menuProduct;
+        private ToolStripMenuItem MenuLogout;
+        private ToolStripMenuItem menuIngredient;
     }
 }

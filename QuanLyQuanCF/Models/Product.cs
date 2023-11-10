@@ -34,6 +34,11 @@ namespace QuanLyQuanCF.Models
         [InverseProperty("Products")]
         public virtual Category Category { get; set; }
 
+        public virtual ICollection<IngredientOrder> IngredientOrders { get; set; }
+
+        public Product() { 
+            this.IngredientOrders = new HashSet<IngredientOrder>();
+        }
 
     }
 }
