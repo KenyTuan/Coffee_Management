@@ -118,6 +118,7 @@ namespace QuanLyQuanCF
                     return;
                 fEditProduct f = new fEditProduct(Convert.ToInt64(dataGridView2.Rows[e.RowIndex].Cells["ProductID"].Value));
                 f.ShowDialog();
+                fManageProduct_Activated(sender, e);
             }
         }
 
@@ -128,7 +129,7 @@ namespace QuanLyQuanCF
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

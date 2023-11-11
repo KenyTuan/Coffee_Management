@@ -14,6 +14,7 @@ namespace QuanLyQuanCF
 {
     public partial class fManageIngredient : Form
     {
+        EFDbContext db = new EFDbContext();
         Ingredient Ingredient;
         private int ingredientId;
         public fManageIngredient()
@@ -25,8 +26,7 @@ namespace QuanLyQuanCF
         private void fManageIngredient_Activated(object sender, EventArgs e)
         {
             txtAmount.ValidatingType = typeof(decimal);
-            using (var db = new EFDbContext())
-            {
+
                 dataGridView1.DataSource = db.Ingredients.Select(
                     i => new
                     {
@@ -40,14 +40,13 @@ namespace QuanLyQuanCF
                 ingredientId = Convert.ToInt32(txtID.Text);
                 txtName.Text = null;
                 txtAmount.Text = null;
-            }
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            using (var db = new EFDbContext())
-            {
-                dataGridView1.DataSource = db.Ingredients.Where(i => i.IngredientName.Contains(textBox1.Text)).Select(
+
+            dataGridView1.DataSource = db.Ingredients.Where(i => i.IngredientName.Contains(textBox1.Text)).Select(
                     i => new
                     {
                         i.IngredientID,
@@ -56,26 +55,40 @@ namespace QuanLyQuanCF
                         i.Status
                     }
                     ).ToList();
-            }
+            
         }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
             try
             {
-                using (var db = new EFDbContext())
-                {
-                    Ingredient.IngredientName = txtName.Text;
-                    Ingredient.Amount = Convert.ToDecimal(txtAmount.Text);
-                    Ingredient.Status = cbStatus.Checked;
+  
 
+                    if (Convert.ToInt32(txtID.Text) < ingredientId)
+                    {
+                        Ingredient.IngredientName = txtName.Text;
+                        Ingredient.Amount = Convert.ToDecimal(txtAmount.Text);
+                        Ingredient.Status = cbStatus.Checked;
+                        db.SaveChanges();
+                        toolTip1.Show("Lưu thành công.", btnNew, 0, 0, 1000);
+                    }
+                    else
+                    {
+                        using (EFDbContext db1 = new EFDbContext())
+                        {
+                            Ingredient.IngredientName = txtName.Text;
+                            Ingredient.Amount = Convert.ToDecimal(txtAmount.Text);
+                            Ingredient.Status = cbStatus.Checked;
+                            db1.Ingredients.Add(Ingredient);
+                            db1.SaveChanges();
+                            toolTip1.Show("Lưu thành công.", btnNew, 0, 0, 1000);
+                        }
+                            
 
-                    db.Ingredients.Add(Ingredient);
-                    db.SaveChanges();
-                    toolTip1.Show("Lưu thành công.", btnNew, 0, 0, 1000);
+                    }
                     fManageIngredient_Activated(sender, e);
 
-                }
+                
             }
             catch (Exception ex)
             {
@@ -96,8 +109,7 @@ namespace QuanLyQuanCF
                 try
                 {
                     int IngredientID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["IngredientID"].Value);
-                    using (var db = new EFDbContext())
-                    {
+
                         Ingredient = db.Ingredients.Single(i => i.IngredientID == IngredientID);
                         if (MessageBox.Show("Bạn muốn xóa nguyển liệu " + Ingredient.IngredientName, "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
@@ -105,7 +117,7 @@ namespace QuanLyQuanCF
                             db.SaveChanges();
                             fManageIngredient_Activated(sender, e);
                         }
-                    }
+                    
                 }
                 catch (Exception ex)
                 {
@@ -116,17 +128,34 @@ namespace QuanLyQuanCF
             {
                 int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["IngredientID"].Value);
 
-                using (var db = new EFDbContext())
-                {
                     Ingredient = db.Ingredients.Single(i => i.IngredientID == id);
-
+                    
                     txtID.Text = Ingredient.IngredientID.ToString();
                     txtName.Text = Ingredient.IngredientName.ToString();
                     txtAmount.Text = Ingredient.Amount.ToString();
                     cbStatus.Checked = Ingredient.Status;
-                }
+                
 
             }
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            if (Utility.IsOpeningForm("fImportIngredient"))
+                return;
+            fImportIngredient f = new fImportIngredient();
+            f.ShowDialog();
+            fManageIngredient_Activated(sender, e);
+        }
+
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (Utility.IsOpeningForm("fExportIngredient"))
+                return;
+            fExportIngredient f = new fExportIngredient();
+            f.ShowDialog();
+            fManageIngredient_Activated(sender, e);
         }
     }
 }

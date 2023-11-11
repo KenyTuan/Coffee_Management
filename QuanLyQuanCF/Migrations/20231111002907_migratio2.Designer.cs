@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuanLyQuanCF;
 
@@ -11,9 +12,11 @@ using QuanLyQuanCF;
 namespace QuanLyQuanCF.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    partial class EFDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231111002907_migratio2")]
+    partial class migratio2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -178,96 +181,6 @@ namespace QuanLyQuanCF.Migrations
                             NameCustomer = "Võ Thị Nguyệt",
                             Phone = "0977357300",
                             Point = 0,
-                            Status = true
-                        });
-                });
-
-            modelBuilder.Entity("QuanLyQuanCF.Models.Employee", b =>
-                {
-                    b.Property<long>("EmployeeID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("EmployeeID"));
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<DateTime>("BirthDay")
-                        .HasColumnType("Date");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("EmployeeName")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<bool?>("Gender")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(6)
-                        .HasColumnType("nvarchar(6)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nchar(10)");
-
-                    b.Property<byte>("RoleID")
-                        .HasColumnType("tinyint");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.HasKey("EmployeeID");
-
-                    b.ToTable("Employees");
-
-                    b.HasData(
-                        new
-                        {
-                            EmployeeID = 1L,
-                            Address = "11A Lý Bí, P5, Q1, TP. Hồ Chí Minh",
-                            BirthDay = new DateTime(1990, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "nguyenvana@gmail.com",
-                            EmployeeName = "Nguyễn Văn A",
-                            Gender = false,
-                            Password = "111",
-                            Phone = "0133456789",
-                            RoleID = (byte)1,
-                            Status = true
-                        },
-                        new
-                        {
-                            EmployeeID = 2L,
-                            Address = "11A Lý Bí, P5, Q1, TP. Hồ Chí Minh",
-                            BirthDay = new DateTime(1990, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "nguyenvanb@gmail.com",
-                            EmployeeName = "Nguyễn Văn B",
-                            Gender = false,
-                            Password = "111",
-                            Phone = "0133456789",
-                            RoleID = (byte)2,
-                            Status = true
-                        },
-                        new
-                        {
-                            EmployeeID = 3L,
-                            Address = "11A Lý Bí, P5, Q1, TP. Hồ Chí Minh",
-                            BirthDay = new DateTime(1990, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "nguyenvanc@gmail.com",
-                            EmployeeName = "Nguyễn Văn C",
-                            Gender = true,
-                            Password = "111",
-                            Phone = "0133456789",
-                            RoleID = (byte)3,
                             Status = true
                         });
                 });

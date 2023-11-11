@@ -51,7 +51,7 @@
             label2 = new Label();
             toolTip1 = new ToolTip(components);
             btnImport = new Button();
-            btnXuat = new Button();
+            btnExport = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -269,15 +269,17 @@
             btnImport.TabIndex = 0;
             btnImport.Text = "Nhập";
             btnImport.UseVisualStyleBackColor = true;
+            btnImport.Click += btnImport_Click;
             // 
-            // btnXuat
+            // btnExport
             // 
-            btnXuat.Location = new Point(548, 161);
-            btnXuat.Name = "btnXuat";
-            btnXuat.Size = new Size(94, 29);
-            btnXuat.TabIndex = 5;
-            btnXuat.Text = "Xuất";
-            btnXuat.UseVisualStyleBackColor = true;
+            btnExport.Location = new Point(548, 161);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(94, 29);
+            btnExport.TabIndex = 5;
+            btnExport.Text = "Xuất";
+            btnExport.UseVisualStyleBackColor = true;
+            btnExport.Click += btnExport_Click;
             // 
             // fManageIngredient
             // 
@@ -286,7 +288,7 @@
             ClientSize = new Size(1085, 605);
             ControlBox = false;
             Controls.Add(panel1);
-            Controls.Add(btnXuat);
+            Controls.Add(btnExport);
             Controls.Add(btnImport);
             Controls.Add(textBox1);
             Controls.Add(label1);
@@ -326,6 +328,6 @@
         private DataGridViewButtonColumn Delete;
         private ToolTip toolTip1;
         private Button btnImport;
-        private Button btnXuat;
+        private Button btnExport;
     }
 }

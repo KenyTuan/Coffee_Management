@@ -18,6 +18,8 @@ namespace QuanLyQuanCF
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<IngredientOrder> IngredientOrders { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+
 
         public void ConfigureServices(IServiceCollection services) => services.AddDbContext<EFDbContext>();
 
@@ -27,6 +29,40 @@ namespace QuanLyQuanCF
         {
             modelBuilder.Entity<IngredientOrder>().HasKey("IngredientOrderID");
             modelBuilder.Entity<IngredientOrder>().HasKey(o => new {o.IngredientID,o.ProductID});
+            modelBuilder.Entity<IngredientOrder>().HasData(
+                new IngredientOrder
+                {
+                    IngredientOrderID = 1,
+                    ProductID = 1,
+                    IngredientID = 1,
+                    Amount = 1,
+                    Capacity = 1,
+                },
+                new IngredientOrder
+                {
+                    IngredientOrderID = 2,
+                    ProductID = 1,
+                    IngredientID = 2,
+                    Amount = 1,
+                    Capacity = 2,
+                },
+                new IngredientOrder
+                {
+                    IngredientOrderID = 3,
+                    ProductID = 2,
+                    IngredientID = 1,
+                    Amount = 1,
+                    Capacity = 2,
+                },
+                new IngredientOrder
+                {
+                    IngredientOrderID = 4,
+                    ProductID = 2,
+                    IngredientID = 2,
+                    Amount = 1,
+                    Capacity = 2,
+                }
+            );
 
             modelBuilder.Entity<Ingredient>().HasData(
                 new Ingredient
@@ -145,7 +181,48 @@ namespace QuanLyQuanCF
                 
                 );
 
+            modelBuilder.Entity<Employee>().HasData(
+            new Employee
+            {
+                EmployeeID = 1,
+                EmployeeName = "Nguyễn Văn A",
+                BirthDay = DateTime.Parse("1990-01-25"),
+                Gender = false,
+                Address = "11A Lý Bí, P5, Q1, TP. Hồ Chí Minh",
+                Phone = "0133456789",
+                Email = "nguyenvana@gmail.com",
+                Password = "111",
+                RoleID = 1,
+                Status = true
 
+            },
+            new Employee
+            {
+                EmployeeID = 2,
+                EmployeeName = "Nguyễn Văn B",
+                BirthDay = DateTime.Parse("1990-01-25"),
+                Gender = false,
+                Address = "11A Lý Bí, P5, Q1, TP. Hồ Chí Minh",
+                Phone = "0133456789",
+                Email = "nguyenvanb@gmail.com",
+                Password = "111",
+                RoleID = 2,
+                Status = true
+
+            },
+            new Employee
+            {
+                EmployeeID = 3,
+                EmployeeName = "Nguyễn Văn C",
+                BirthDay = DateTime.Parse("1990-01-25"),
+                Gender = true,
+                Address = "11A Lý Bí, P5, Q1, TP. Hồ Chí Minh",
+                Phone = "0133456789",
+                Email = "nguyenvanc@gmail.com",
+                Password = "111",
+                RoleID = 3,
+                Status = true
+            });
         }
     }
 }

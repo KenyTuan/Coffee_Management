@@ -63,6 +63,16 @@ namespace QuanLyQuanCF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _32432hotbeverage_98916 {
+            get {
+                object obj = ResourceManager.GetObject("32432hotbeverage_98916", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_category {
             get {
                 object obj = ResourceManager.GetObject("icon_category", resourceCulture);
@@ -103,9 +113,29 @@ namespace QuanLyQuanCF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_ManageEmployee {
+            get {
+                object obj = ResourceManager.GetObject("icon_ManageEmployee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_ManageProduct {
             get {
                 object obj = ResourceManager.GetObject("icon_ManageProduct", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_preparation_recipe {
+            get {
+                object obj = ResourceManager.GetObject("icon_preparation_recipe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
