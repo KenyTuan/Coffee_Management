@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace QuanLyQuanCF
 {
-    public partial class fEditCategory : Form
+    public partial class fNewpreparationRecipe : Form
     {
-        public fEditCategory()
+        public fNewpreparationRecipe()
         {
             InitializeComponent();
         }
-
-
-
-
-
-
-
-
     }
 }

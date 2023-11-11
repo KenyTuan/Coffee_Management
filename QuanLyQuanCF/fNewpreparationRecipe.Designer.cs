@@ -1,6 +1,6 @@
 ﻿namespace QuanLyQuanCF
 {
-    partial class fEditCategory
+    partial class fNewpreparationRecipe
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
-            // 
-            // fEditCategory
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(647, 558);
-            Name = "fEditCategory";
-            Text = "fEditCategory";
-            ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "fNewpreparationRecipe";
         }
 
         #endregion

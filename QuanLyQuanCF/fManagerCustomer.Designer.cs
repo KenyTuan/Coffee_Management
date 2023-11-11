@@ -101,6 +101,7 @@
             CustomerID.HeaderText = "Mã";
             CustomerID.MinimumWidth = 6;
             CustomerID.Name = "CustomerID";
+            CustomerID.ReadOnly = true;
             CustomerID.Width = 59;
             // 
             // NameCustomer
@@ -110,6 +111,7 @@
             NameCustomer.HeaderText = "Tên Khách Hàng";
             NameCustomer.MinimumWidth = 6;
             NameCustomer.Name = "NameCustomer";
+            NameCustomer.ReadOnly = true;
             NameCustomer.Width = 145;
             // 
             // Gender
@@ -119,6 +121,7 @@
             Gender.HeaderText = "Giới Tính";
             Gender.MinimumWidth = 6;
             Gender.Name = "Gender";
+            Gender.ReadOnly = true;
             Gender.Width = 74;
             // 
             // Birthday
@@ -128,6 +131,7 @@
             Birthday.HeaderText = "Ngày Sinh";
             Birthday.MinimumWidth = 6;
             Birthday.Name = "Birthday";
+            Birthday.ReadOnly = true;
             Birthday.Width = 105;
             // 
             // Address
@@ -137,6 +141,7 @@
             Address.HeaderText = "Địa Chỉ";
             Address.MinimumWidth = 6;
             Address.Name = "Address";
+            Address.ReadOnly = true;
             Address.Width = 86;
             // 
             // Phone
@@ -146,6 +151,7 @@
             Phone.HeaderText = "Số Điện Thoại";
             Phone.MinimumWidth = 6;
             Phone.Name = "Phone";
+            Phone.ReadOnly = true;
             Phone.Width = 131;
             // 
             // Point
@@ -155,6 +161,7 @@
             Point.HeaderText = "Điểm";
             Point.MinimumWidth = 6;
             Point.Name = "Point";
+            Point.ReadOnly = true;
             Point.Width = 74;
             // 
             // Status
@@ -164,6 +171,7 @@
             Status.HeaderText = "Trạng Thái";
             Status.MinimumWidth = 6;
             Status.Name = "Status";
+            Status.ReadOnly = true;
             Status.Width = 84;
             // 
             // Edit

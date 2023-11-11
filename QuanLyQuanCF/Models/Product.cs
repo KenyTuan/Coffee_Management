@@ -35,9 +35,12 @@ namespace QuanLyQuanCF.Models
         public virtual Category Category { get; set; }
 
         public virtual ICollection<IngredientOrder> IngredientOrders { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
 
         public Product() { 
             this.IngredientOrders = new HashSet<IngredientOrder>();
+            this.OrderDetails = new HashSet<OrderDetail>();
         }
 
     }

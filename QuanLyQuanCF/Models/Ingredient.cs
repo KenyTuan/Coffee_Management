@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace QuanLyQuanCF.Models
 {
+
     internal class Ingredient
     {
+        
         public int IngredientID { get; set; }
         
         [StringLength(255)]

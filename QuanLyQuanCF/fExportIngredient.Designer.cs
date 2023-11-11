@@ -28,79 +28,255 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fExportIngredient));
-            listView1 = new ListView();
-            button1 = new Button();
-            textBox1 = new TextBox();
+            lsIngredient = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            btnSave = new Button();
+            txtID = new TextBox();
             label1 = new Label();
             label2 = new Label();
+            panel1 = new Panel();
+            numAmount = new NumericUpDown();
+            btnReset = new Button();
+            btnAdd = new Button();
+            btnClose = new Button();
+            label4 = new Label();
+            label3 = new Label();
+            txtName = new TextBox();
+            cbIngredient = new ComboBox();
+            panel2 = new Panel();
+            label5 = new Label();
+            toolTip1 = new ToolTip(components);
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numAmount).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
-            // listView1
+            // lsIngredient
             // 
-            listView1.Location = new Point(12, 148);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(282, 290);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
+            lsIngredient.Activation = ItemActivation.OneClick;
+            lsIngredient.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lsIngredient.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            lsIngredient.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lsIngredient.FullRowSelect = true;
+            lsIngredient.HoverSelection = true;
+            lsIngredient.Location = new Point(12, 97);
+            lsIngredient.Name = "lsIngredient";
+            lsIngredient.Size = new Size(523, 494);
+            lsIngredient.TabIndex = 0;
+            lsIngredient.UseCompatibleStateImageBehavior = false;
+            lsIngredient.View = View.Details;
             // 
-            // button1
+            // columnHeader1
             // 
-            button1.Location = new Point(551, 298);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 1;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            columnHeader1.Text = "Mã";
+            columnHeader1.Width = 100;
             // 
-            // textBox1
+            // columnHeader2
             // 
-            textBox1.Location = new Point(531, 228);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 2;
+            columnHeader2.Text = "Tên Sản Phẩm";
+            columnHeader2.TextAlign = HorizontalAlignment.Center;
+            columnHeader2.Width = 300;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Số Lượng";
+            columnHeader3.TextAlign = HorizontalAlignment.Center;
+            columnHeader3.Width = 120;
+            // 
+            // btnSave
+            // 
+            btnSave.Location = new Point(256, 246);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(94, 29);
+            btnSave.TabIndex = 1;
+            btnSave.Text = "Lưu Lại";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
+            // 
+            // txtID
+            // 
+            txtID.Enabled = false;
+            txtID.Location = new Point(83, 58);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(101, 27);
+            txtID.TabIndex = 2;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(333, 35);
+            label1.Dock = DockStyle.Top;
+            label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(50, 20);
+            label1.Size = new Size(1038, 75);
             label1.TabIndex = 3;
-            label1.Text = "label1";
+            label1.Text = "Xuất Kho";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(375, 215);
+            label2.Location = new Point(20, 61);
             label2.Name = "label2";
-            label2.Size = new Size(50, 20);
+            label2.Size = new Size(33, 20);
             label2.TabIndex = 4;
-            label2.Text = "label2";
+            label2.Text = "Mã:";
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(numAmount);
+            panel1.Controls.Add(btnReset);
+            panel1.Controls.Add(btnAdd);
+            panel1.Controls.Add(btnClose);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(txtName);
+            panel1.Controls.Add(txtID);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(btnSave);
+            panel1.Location = new Point(541, 208);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(485, 383);
+            panel1.TabIndex = 5;
+            // 
+            // numAmount
+            // 
+            numAmount.Location = new Point(166, 159);
+            numAmount.Name = "numAmount";
+            numAmount.Size = new Size(127, 27);
+            numAmount.TabIndex = 12;
+            // 
+            // btnReset
+            // 
+            btnReset.Location = new Point(145, 246);
+            btnReset.Name = "btnReset";
+            btnReset.Size = new Size(94, 29);
+            btnReset.TabIndex = 11;
+            btnReset.Text = "Xóa";
+            btnReset.UseVisualStyleBackColor = true;
+            btnReset.Click += btnReset_Click;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(24, 246);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(94, 29);
+            btnAdd.TabIndex = 10;
+            btnAdd.Text = "Thêm";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnClose
+            // 
+            btnClose.Location = new Point(356, 246);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(94, 29);
+            btnClose.TabIndex = 8;
+            btnClose.Text = "Đóng";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(20, 161);
+            label4.Name = "label4";
+            label4.Size = new Size(72, 20);
+            label4.TabIndex = 7;
+            label4.Text = "Số Lượng";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(20, 106);
+            label3.Name = "label3";
+            label3.Size = new Size(121, 20);
+            label3.TabIndex = 6;
+            label3.Text = "Tên Nguyên Liệu:";
+            // 
+            // txtName
+            // 
+            txtName.Enabled = false;
+            txtName.Location = new Point(145, 103);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(305, 27);
+            txtName.TabIndex = 5;
+            // 
+            // cbIngredient
+            // 
+            cbIngredient.FormattingEnabled = true;
+            cbIngredient.Location = new Point(194, 45);
+            cbIngredient.Name = "cbIngredient";
+            cbIngredient.Size = new Size(186, 28);
+            cbIngredient.TabIndex = 6;
+            cbIngredient.SelectionChangeCommitted += cbIngredient_SelectionChangeCommitted;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(label5);
+            panel2.Controls.Add(cbIngredient);
+            panel2.Location = new Point(541, 97);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(485, 96);
+            panel2.TabIndex = 7;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(28, 48);
+            label5.Name = "label5";
+            label5.Size = new Size(132, 20);
+            label5.TabIndex = 10;
+            label5.Text = "Chọn Nguyên Liệu:";
             // 
             // fExportIngredient
             // 
+            AcceptButton = btnAdd;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label2);
+            CancelButton = btnClose;
+            ClientSize = new Size(1038, 603);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(label1);
-            Controls.Add(textBox1);
-            Controls.Add(button1);
-            Controls.Add(listView1);
+            Controls.Add(lsIngredient);
+            DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "fExportIngredient";
             Text = "Xuất Nguyên Liệu";
+            Load += fExportIngredient_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numAmount).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private ListView listView1;
-        private Button button1;
-        private TextBox textBox1;
+        private ListView lsIngredient;
+        private Button btnSave;
+        private TextBox txtID;
         private Label label1;
         private Label label2;
+        private Panel panel1;
+        private Label label3;
+        private TextBox txtName;
+        private Label label4;
+        private Button btnClose;
+        private ComboBox cbIngredient;
+        private Panel panel2;
+        private Label label5;
+        private Button btnReset;
+        private Button btnAdd;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ToolTip toolTip1;
+        private NumericUpDown numAmount;
     }
 }
