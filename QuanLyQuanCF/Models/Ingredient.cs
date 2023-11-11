@@ -14,6 +14,7 @@ namespace QuanLyQuanCF.Models
     internal class Ingredient
     {
         
+        
         public int IngredientID { get; set; }
         
         [StringLength(255)]
@@ -27,6 +28,12 @@ namespace QuanLyQuanCF.Models
         public virtual ICollection<IngredientOrder> IngredientOrders { get; set; }
         public Ingredient() { 
             this.IngredientOrders = new HashSet<IngredientOrder>();
-        } 
+        }
+
+        public Ingredient(int IngredientID, string IngredientName)
+        {
+            this.IngredientID = IngredientID;
+            this.IngredientName = IngredientName;
+        }
     }
 }

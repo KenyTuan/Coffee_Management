@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QuanLyQuanCF
 {
@@ -17,8 +18,12 @@ namespace QuanLyQuanCF
         ItemProduct[] item_product;
         EFDbContext db;
         string txtName;
+
         System.Windows.Forms.Timer timer;
         static fManageOrderDetail _obj;
+
+        Order Order;
+        OrderDetail orderDetail;
 
         public static fManageOrderDetail Instance
         {
@@ -34,13 +39,13 @@ namespace QuanLyQuanCF
 
         }
 
-        public ListView LsOrder
+        public System.Windows.Forms.ListView LsOrder
         {
             get { return lsOrder; }
             set { lsOrder = value; }
         }
 
-        public TextBox Total
+        public System.Windows.Forms.TextBox Total
         {
             get { return txtTotal; }
             set { txtTotal = value; }
@@ -80,7 +85,48 @@ namespace QuanLyQuanCF
 
         private void btnPay_Click(object sender, EventArgs e)
         {
+            try
+            {
+                
+                Order = new Order();
+                Order.Total = Convert.ToDecimal(txtTotal.Text);
+                Order.CustomerID = Convert.ToInt64(cbCustomer.SelectedValue);
+                Order.EmployeeID = 1;
+                Order.OrderDate = DateTime.Now;
+                Order.OrderTime = DateTime.Now.TimeOfDay;
+                using (EFDbContext db = new EFDbContext())
+                {
+                db.Orders.Add(Order);
+                db.SaveChanges();
+                }
+                txtTotal.Text = null;
 
+                using (var db = new EFDbContext())
+                {
+                    for (int i = 0; i < lsOrder.Items.Count; i++)
+                    {
+                        orderDetail = new OrderDetail();
+                        orderDetail.Price = Convert.ToDecimal(lsOrder.Items[i].SubItems[3].Text);
+                        orderDetail.Quantity = Convert.ToInt32(lsOrder.Items[i].SubItems[2].Text);
+
+                        orderDetail.ProductID = db.Product.Single(p => p.ProductName.Contains(lsOrder.Items[i].SubItems[0].Text) && p.ProductSize.Contains(lsOrder.Items[i].SubItems[1].Text)).ProductID;
+                        orderDetail.OrderID = db.Orders.ToArray().Last().OrderID;
+                        db.OrderDetails.Add(orderDetail);
+                        db.SaveChanges();
+
+
+                    }
+                    lsOrder.Items.Clear();
+                }
+                toolTip1.Show("Lưu thành Công", btnPay, 0, 0,
+               1000);
+
+            }
+            catch (Exception ex)
+            {
+                toolTip1.Show("Lưu thất bại? Error: " + ex.Message, btnPay, 0, 0,
+               1000);
+            }
         }
 
         private void fManageOrderDetail_Load(object sender, EventArgs e)
@@ -102,6 +148,13 @@ namespace QuanLyQuanCF
 
                 flowLayoutPanel1.Controls.Add(item_product[i++]);
             }
+
+            cbCustomer.DisplayMember = "NameCustomer";
+            cbCustomer.ValueMember = "CustomerID";
+
+            cbCustomer.DataSource = db.Customers.Select(a => new { a.CustomerID, a.NameCustomer }).ToList();
+
+
 
         }
 

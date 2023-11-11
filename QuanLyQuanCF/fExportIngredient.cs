@@ -17,7 +17,6 @@ namespace QuanLyQuanCF
     {
         EFDbContext db = new EFDbContext();
         Ingredient ingredient;
-        List<int> lsIngredientID;
         public fExportIngredient()
         {
             InitializeComponent();
@@ -25,19 +24,11 @@ namespace QuanLyQuanCF
 
         private void fExportIngredient_Load(object sender, EventArgs e)
         {
+
             cbIngredient.DisplayMember = "IngredientName";
             cbIngredient.ValueMember = "IngredientID";
-            if (lsIngredientID.Count > 0 && !lsIngredientID.IsNullOrEmpty())
-            {
-                foreach (int i in lsIngredientID)
-                {
-                    cbIngredient.DataSource = db.Ingredients.Where(a => a.IngredientID != i).Select(a => new { a.IngredientID, a.IngredientName }).ToList();
-                }
-            }
-            else
-            {
-                cbIngredient.DataSource = db.Ingredients.Select(a => new { a.IngredientID, a.IngredientName }).ToList();
-            }
+            cbIngredient.DataSource = db.Ingredients.Select(a => new { a.IngredientID, a.IngredientName }).ToList(); 
+            
             cbIngredient_SelectionChangeCommitted(sender, e);
 
 
@@ -58,8 +49,8 @@ namespace QuanLyQuanCF
                         ingredient.Status = true;
                         ingredient.Amount -= Convert.ToInt32(lsIngredient.Items[i].SubItems[2].Text);
                         db.SaveChanges();
-                        lsIngredient.Items.Clear();
                     }
+                    lsIngredient.Items.Clear();
                     MessageBox.Show("Lưu Thành Công!", "Lưu Lại", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
@@ -96,8 +87,8 @@ namespace QuanLyQuanCF
 
             string[] result = { txtID.Text, txtName.Text, numAmount.Text };
             lsIngredient.Items.Add(new ListViewItem(result));
-            lsIngredientID.Add(Convert.ToInt32(cbIngredient.SelectedValue));
-            fExportIngredient_Load(lsIngredientID, e);
+
+            fExportIngredient_Load(sender, e);
 
         }
 
