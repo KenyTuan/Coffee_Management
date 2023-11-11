@@ -12,8 +12,8 @@ using QuanLyQuanCF;
 namespace QuanLyQuanCF.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    [Migration("20231111002907_migratio2")]
-    partial class migratio2
+    [Migration("20231111081355_migration2")]
+    partial class migration2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -185,6 +185,96 @@ namespace QuanLyQuanCF.Migrations
                         });
                 });
 
+            modelBuilder.Entity("QuanLyQuanCF.Models.Employee", b =>
+                {
+                    b.Property<long>("EmployeeID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("EmployeeID"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<DateTime>("BirthDay")
+                        .HasColumnType("Date");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("EmployeeName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool?>("Gender")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(6)
+                        .HasColumnType("nvarchar(6)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nchar(10)");
+
+                    b.Property<byte>("RoleID")
+                        .HasColumnType("tinyint");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("EmployeeID");
+
+                    b.ToTable("Employees");
+
+                    b.HasData(
+                        new
+                        {
+                            EmployeeID = 1L,
+                            Address = "11A Lý Bí, P5, Q1, TP. Hồ Chí Minh",
+                            BirthDay = new DateTime(1990, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "nguyenvana@gmail.com",
+                            EmployeeName = "Nguyễn Văn A",
+                            Gender = false,
+                            Password = "111",
+                            Phone = "0133456789",
+                            RoleID = (byte)1,
+                            Status = true
+                        },
+                        new
+                        {
+                            EmployeeID = 2L,
+                            Address = "11A Lý Bí, P5, Q1, TP. Hồ Chí Minh",
+                            BirthDay = new DateTime(1990, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "nguyenvanb@gmail.com",
+                            EmployeeName = "Nguyễn Văn B",
+                            Gender = false,
+                            Password = "111",
+                            Phone = "0133456789",
+                            RoleID = (byte)2,
+                            Status = true
+                        },
+                        new
+                        {
+                            EmployeeID = 3L,
+                            Address = "11A Lý Bí, P5, Q1, TP. Hồ Chí Minh",
+                            BirthDay = new DateTime(1990, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "nguyenvanc@gmail.com",
+                            EmployeeName = "Nguyễn Văn C",
+                            Gender = true,
+                            Password = "111",
+                            Phone = "0133456789",
+                            RoleID = (byte)3,
+                            Status = true
+                        });
+                });
+
             modelBuilder.Entity("QuanLyQuanCF.Models.Ingredient", b =>
                 {
                     b.Property<int>("IngredientID")
@@ -274,6 +364,62 @@ namespace QuanLyQuanCF.Migrations
                             Capacity = 2m,
                             IngredientOrderID = 4L
                         });
+                });
+
+            modelBuilder.Entity("QuanLyQuanCF.Models.Order", b =>
+                {
+                    b.Property<long>("OrderID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("OrderID"));
+
+                    b.Property<long>("CustomerID")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("EmployeeID")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<TimeSpan>("OrderTime")
+                        .HasColumnType("time");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.HasKey("OrderID");
+
+                    b.HasIndex("CustomerID");
+
+                    b.HasIndex("EmployeeID");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("QuanLyQuanCF.Models.OrderDetail", b =>
+                {
+                    b.Property<long>("OrderID")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ProductID")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("OrderDetailID")
+                        .HasColumnType("bigint");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderID", "ProductID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("QuanLyQuanCF.Models.Product", b =>
@@ -558,6 +704,44 @@ namespace QuanLyQuanCF.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("QuanLyQuanCF.Models.Order", b =>
+                {
+                    b.HasOne("QuanLyQuanCF.Models.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("QuanLyQuanCF.Models.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("QuanLyQuanCF.Models.OrderDetail", b =>
+                {
+                    b.HasOne("QuanLyQuanCF.Models.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("QuanLyQuanCF.Models.Product", "Product")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("QuanLyQuanCF.Models.Product", b =>
                 {
                     b.HasOne("QuanLyQuanCF.Models.Category", "Category")
@@ -579,9 +763,16 @@ namespace QuanLyQuanCF.Migrations
                     b.Navigation("IngredientOrders");
                 });
 
+            modelBuilder.Entity("QuanLyQuanCF.Models.Order", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
             modelBuilder.Entity("QuanLyQuanCF.Models.Product", b =>
                 {
                     b.Navigation("IngredientOrders");
+
+                    b.Navigation("OrderDetails");
                 });
 #pragma warning restore 612, 618
         }

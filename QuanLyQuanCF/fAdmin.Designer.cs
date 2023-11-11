@@ -31,13 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdmin));
             menuStrip1 = new MenuStrip();
             menuSystem = new ToolStripMenuItem();
+            menuOrderDetail = new ToolStripMenuItem();
             menuCategory = new ToolStripMenuItem();
             MenuCustomer = new ToolStripMenuItem();
+            menuEmployee = new ToolStripMenuItem();
             menuProduct = new ToolStripMenuItem();
             menuIngredient = new ToolStripMenuItem();
             menuPreparationRecipe = new ToolStripMenuItem();
             MenuLogout = new ToolStripMenuItem();
-            menuEmployee = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,11 +56,20 @@
             // menuSystem
             // 
             menuSystem.AutoSize = false;
+            menuSystem.DropDownItems.AddRange(new ToolStripItem[] { menuOrderDetail });
             menuSystem.Image = Properties.Resources.icon_System;
             menuSystem.Margin = new Padding(0, 10, 0, 10);
             menuSystem.Name = "menuSystem";
             menuSystem.Size = new Size(150, 50);
             menuSystem.Text = "Hệ Thống";
+            // 
+            // menuOrderDetail
+            // 
+            menuOrderDetail.AutoSize = false;
+            menuOrderDetail.Name = "menuOrderDetail";
+            menuOrderDetail.Size = new Size(200, 35);
+            menuOrderDetail.Text = "Gọi Món";
+            menuOrderDetail.Click += menuOrderDetail_Click;
             // 
             // menuCategory
             // 
@@ -79,6 +89,15 @@
             MenuCustomer.Size = new Size(200, 35);
             MenuCustomer.Text = "Khách Hàng";
             MenuCustomer.Click += MenuCustomer_Click;
+            // 
+            // menuEmployee
+            // 
+            menuEmployee.AutoSize = false;
+            menuEmployee.Image = Properties.Resources.icon_ManageEmployee;
+            menuEmployee.Name = "menuEmployee";
+            menuEmployee.Size = new Size(200, 35);
+            menuEmployee.Text = "Nhân Viên";
+            menuEmployee.Click += menuEmployee_Click;
             // 
             // menuProduct
             // 
@@ -113,18 +132,9 @@
             MenuLogout.Image = Properties.Resources.icon_Logout;
             MenuLogout.Margin = new Padding(0, 10, 0, 10);
             MenuLogout.Name = "MenuLogout";
-            MenuLogout.Size = new Size(150, 50);
+            MenuLogout.Size = new Size(150, 28);
             MenuLogout.Text = "Đăng Xuất";
             MenuLogout.Click += MenuLogout_Click;
-            // 
-            // menuEmployee
-            // 
-            menuEmployee.AutoSize = false;
-            menuEmployee.Image = Properties.Resources.icon_ManageEmployee;
-            menuEmployee.Name = "menuEmployee";
-            menuEmployee.Size = new Size(200, 35);
-            menuEmployee.Text = "Nhân Viên";
-            menuEmployee.Click += menuEmployee_Click;
             // 
             // fAdmin
             // 
@@ -139,6 +149,7 @@
             Name = "fAdmin";
             Text = "Quán Coffee 86";
             WindowState = FormWindowState.Maximized;
+            Load += fAdmin_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -156,5 +167,6 @@
         private ToolStripMenuItem menuIngredient;
         private ToolStripMenuItem menuPreparationRecipe;
         private ToolStripMenuItem menuEmployee;
+        private ToolStripMenuItem menuOrderDetail;
     }
 }

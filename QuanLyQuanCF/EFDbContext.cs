@@ -19,6 +19,9 @@ namespace QuanLyQuanCF
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<IngredientOrder> IngredientOrders { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Order> Orders { get; set; }
+
 
 
         public void ConfigureServices(IServiceCollection services) => services.AddDbContext<EFDbContext>();
@@ -27,42 +30,7 @@ namespace QuanLyQuanCF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<IngredientOrder>().HasKey("IngredientOrderID");
-            modelBuilder.Entity<IngredientOrder>().HasKey(o => new {o.IngredientID,o.ProductID});
-            modelBuilder.Entity<IngredientOrder>().HasData(
-                new IngredientOrder
-                {
-                    IngredientOrderID = 1,
-                    ProductID = 1,
-                    IngredientID = 1,
-                    Amount = 1,
-                    Capacity = 1,
-                },
-                new IngredientOrder
-                {
-                    IngredientOrderID = 2,
-                    ProductID = 1,
-                    IngredientID = 2,
-                    Amount = 1,
-                    Capacity = 2,
-                },
-                new IngredientOrder
-                {
-                    IngredientOrderID = 3,
-                    ProductID = 2,
-                    IngredientID = 1,
-                    Amount = 1,
-                    Capacity = 2,
-                },
-                new IngredientOrder
-                {
-                    IngredientOrderID = 4,
-                    ProductID = 2,
-                    IngredientID = 2,
-                    Amount = 1,
-                    Capacity = 2,
-                }
-            );
+            
 
             modelBuilder.Entity<Ingredient>().HasData(
                 new Ingredient
@@ -127,6 +95,10 @@ namespace QuanLyQuanCF
                     Status = true
                 }
                 );
+
+           
+
+            
 
             // Category
             modelBuilder.Entity<Category>().HasData(
@@ -223,6 +195,46 @@ namespace QuanLyQuanCF
                 RoleID = 3,
                 Status = true
             });
+
+            modelBuilder.Entity<OrderDetail>().HasKey("OrderDetailID");
+            modelBuilder.Entity<OrderDetail>().HasKey(o => new { o.OrderID, o.ProductID });
+
+            modelBuilder.Entity<IngredientOrder>().HasKey("IngredientOrderID");
+            modelBuilder.Entity<IngredientOrder>().HasKey(o => new { o.IngredientID, o.ProductID });
+            modelBuilder.Entity<IngredientOrder>().HasData(
+                new IngredientOrder
+                {
+                    IngredientOrderID = 1,
+                    ProductID = 1,
+                    IngredientID = 1,
+                    Amount = 1,
+                    Capacity = 1,
+                },
+                new IngredientOrder
+                {
+                    IngredientOrderID = 2,
+                    ProductID = 1,
+                    IngredientID = 2,
+                    Amount = 1,
+                    Capacity = 2,
+                },
+                new IngredientOrder
+                {
+                    IngredientOrderID = 3,
+                    ProductID = 2,
+                    IngredientID = 1,
+                    Amount = 1,
+                    Capacity = 2,
+                },
+                new IngredientOrder
+                {
+                    IngredientOrderID = 4,
+                    ProductID = 2,
+                    IngredientID = 2,
+                    Amount = 1,
+                    Capacity = 2,
+                }
+            );
         }
     }
 }

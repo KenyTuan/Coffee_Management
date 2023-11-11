@@ -18,7 +18,7 @@ namespace QuanLyQuanCF
         public fManagePreparationRecipe()
         {
             InitializeComponent();
-            UserControl1 userControl1 = new UserControl1();
+            userControl1 = new UserControl1();
 
         }
 

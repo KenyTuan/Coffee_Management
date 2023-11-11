@@ -66,5 +66,23 @@ namespace QuanLyQuanCF
             f.MdiParent = this;
             f.Show();
         }
+
+        private void menuOrderDetail_Click(object sender, EventArgs e)
+        {
+            if (Utility.IsOpeningForm("fManagerOrderDetail"))
+                return;
+            fManageOrderDetail f = new fManageOrderDetail();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void fAdmin_Load(object sender, EventArgs e)
+        {
+            if (Utility.IsOpeningForm("fManagerOrderDetail"))
+                return;
+            fManageOrderDetail f = new fManageOrderDetail();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }
