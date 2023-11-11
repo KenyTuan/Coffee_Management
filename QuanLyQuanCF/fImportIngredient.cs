@@ -92,7 +92,7 @@ namespace QuanLyQuanCF
                         ingredient = db.Ingredients.Single(a => a.IngredientID == Convert.ToInt32(lsIngredient.Items[i].SubItems[0].Text));
                         ingredient.IngredientName = lsIngredient.Items[i].SubItems[1].Text;
                         ingredient.Status = true;
-                        ingredient.Amount -= Convert.ToInt32(lsIngredient.Items[i].SubItems[2].Text);
+                        ingredient.Amount += Convert.ToInt32(lsIngredient.Items[i].SubItems[2].Text);
                         db.SaveChanges();
                         lsIngredient.Items.Clear();
                     }

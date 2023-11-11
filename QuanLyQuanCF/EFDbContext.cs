@@ -30,7 +30,17 @@ namespace QuanLyQuanCF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+
+            modelBuilder.Entity<Order>().HasData(
+                new Order
+                {
+                    OrderID = 1,
+                    CustomerID = 1,
+                    EmployeeID = 0,
+                    OrderDate = DateTime.Now,
+                    OrderTime = DateTime.Now.TimeOfDay,
+                    Total = 1000,
+                });
 
             modelBuilder.Entity<Ingredient>().HasData(
                 new Ingredient
