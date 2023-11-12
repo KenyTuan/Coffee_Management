@@ -108,7 +108,7 @@ namespace QuanLyQuanCF
                     db.SaveChanges();
                 }
 
-                MessageBox.Show("Lưu thành công!", "Thông Báo", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Lưu thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             catch (Exception ex)

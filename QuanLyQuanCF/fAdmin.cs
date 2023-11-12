@@ -94,5 +94,20 @@ namespace QuanLyQuanCF
             f.MdiParent = this;
             f.Show();
         }
+
+        private void menuReport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Utility.IsOpeningForm("fReportCategoryProductGroupByCategory"))
+                return;
+            fReportCategoryProductGroupByCategory f =
+            new fReportCategoryProductGroupByCategory();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

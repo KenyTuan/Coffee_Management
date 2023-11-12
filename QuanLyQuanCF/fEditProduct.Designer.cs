@@ -126,7 +126,6 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources._32432hotbeverage_98916;
             pictureBox1.Location = new Point(3, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(258, 246);
@@ -360,7 +359,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.Red;
+            label1.ForeColor = SystemColors.ActiveCaptionText;
             label1.Location = new Point(141, 13);
             label1.Name = "label1";
             label1.Size = new Size(379, 45);

@@ -22,7 +22,12 @@ namespace QuanLyQuanCF
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            this.Hide();
+            if (Utility.IsOpeningForm("fManageProduct"))
+                return;
+            fResestPass1 f = new fResestPass1();
+            f.ShowDialog();
+            this.Show();
         }
     }
 }

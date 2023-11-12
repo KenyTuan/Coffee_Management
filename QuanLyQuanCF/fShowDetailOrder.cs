@@ -43,14 +43,7 @@ namespace QuanLyQuanCF
                 lblDateOrder.Text = order.OrderDate.ToString();
                 lblTime.Text = order.OrderTime.ToString();
 
-                var lsOrder = db.OrderDetails.Where(o => o.OrderID == OrderID).Select(o =>
-                    new
-                    {
-                        o.Product.ProductName,
-                        o.Product.ProductSize,
-                        o.Product.Price,
-                        o.Quantity
-                    }).ToList();
+                var lsOrder = db.OrderDetails.Where(o => o.OrderID == OrderID).ToList();
 
 
 
@@ -59,8 +52,8 @@ namespace QuanLyQuanCF
                     ListViewItem orderDetail = new ListViewItem();
 
                     orderDetail.SubItems[0].Text = item.Quantity + "";
-                    orderDetail.SubItems[1].Text = item.ProductName;
-                    orderDetail.SubItems[2].Text = item.ProductSize;
+                    orderDetail.SubItems[1].Text = item.Product.ProductName;
+                    orderDetail.SubItems[2].Text = item.Product.ProductSize;
                     orderDetail.SubItems[3].Text = item.Price + "";
 
 

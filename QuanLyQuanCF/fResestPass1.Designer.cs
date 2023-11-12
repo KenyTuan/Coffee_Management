@@ -28,14 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fResestPass1));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            txtID = new TextBox();
+            txtNewPass = new TextBox();
+            txtPassConfirm = new TextBox();
             button1 = new Button();
+            btnClose = new Button();
+            toolTip1 = new ToolTip(components);
             SuspendLayout();
             // 
             // label1
@@ -76,51 +80,66 @@
             label4.Text = "Nhập lại mật khẩu mới :";
             label4.Click += label4_Click;
             // 
-            // textBox1
+            // txtID
             // 
-            textBox1.Location = new Point(210, 74);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(271, 27);
-            textBox1.TabIndex = 4;
+            txtID.Location = new Point(230, 74);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(251, 27);
+            txtID.TabIndex = 4;
             // 
-            // textBox2
+            // txtNewPass
             // 
-            textBox2.Location = new Point(211, 131);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(270, 27);
-            textBox2.TabIndex = 5;
+            txtNewPass.Location = new Point(230, 131);
+            txtNewPass.Name = "txtNewPass";
+            txtNewPass.Size = new Size(251, 27);
+            txtNewPass.TabIndex = 5;
             // 
-            // textBox3
+            // txtPassConfirm
             // 
-            textBox3.Location = new Point(230, 186);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(251, 27);
-            textBox3.TabIndex = 6;
+            txtPassConfirm.Location = new Point(230, 186);
+            txtPassConfirm.Name = "txtPassConfirm";
+            txtPassConfirm.Size = new Size(251, 27);
+            txtPassConfirm.TabIndex = 6;
             // 
             // button1
             // 
-            button1.Location = new Point(387, 237);
+            button1.Location = new Point(155, 252);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 7;
             button1.Text = "Cập nhật";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // btnClose
+            // 
+            btnClose.Location = new Point(290, 252);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(94, 29);
+            btnClose.TabIndex = 8;
+            btnClose.Text = "Đóng";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // fResestPass1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(557, 308);
+            ClientSize = new Size(530, 329);
+            Controls.Add(btnClose);
             Controls.Add(button1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtPassConfirm);
+            Controls.Add(txtNewPass);
+            Controls.Add(txtID);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "fResestPass1";
-            Text = "fResestPass";
+            Text = "Đổi Mật Khẩu";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -131,9 +150,11 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox txtID;
+        private TextBox txtNewPass;
+        private TextBox txtPassConfirm;
         private Button button1;
+        private Button btnClose;
+        private ToolTip toolTip1;
     }
 }
