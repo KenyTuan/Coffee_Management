@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using QuanLyQuanCF.Models;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -34,7 +36,7 @@ namespace QuanLyQuanCF
             cbSize.Text = product.ProductSize.ToString();
             mPrice.Text = product.Price.ToString();
             numQuantity.Text = product.Quantity.ToString();
-            txtImage.Text = (string.IsNullOrWhiteSpace(product.ImageFile)) ? null: Utility.ImagePath + product.ImageFile;
+            txtImage.Text = (string.IsNullOrWhiteSpace(product.ImageFile)) ? null : Utility.ImagePath + product.ImageFile;
             ckbStatus.Checked = product.Status;
             pictureBox1.ImageLocation = txtImage.Text;
 
@@ -61,6 +63,29 @@ namespace QuanLyQuanCF
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(txtName.Text))
+                {
+                    toolTip1.Show("Không Được để trống!", txtName, 0, 0, 1000);
+                    return;
+                }
+                if (txtName.Text.Length > 255)
+                {
+                    toolTip1.Show("Không được quá 255?", txtName, 0, 0, 1000);
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(mPrice.Text))
+                {
+                    toolTip1.Show("Không Được để trống!", mPrice, 0, 0, 1000);
+                    return;
+                }
+                if (!Regex.IsMatch(mPrice.Text, @"^[-+]?[0-9]*.?[0-9]+$"))
+                {
+                    toolTip1.Show("Không hợp lệ?", mPrice, 0, 0, 1000);
+                    return;
+                }
+
+
+
                 product.ProductName = txtName.Text;
                 product.ProductSize = cbSize.Text;
                 product.Price = Convert.ToDecimal(mPrice.Text);
@@ -74,7 +99,7 @@ namespace QuanLyQuanCF
 
                 if (!string.IsNullOrWhiteSpace(txtImage.Text) && txtImage.Text != product.ImageFile && lastIndex > 0)
                 {
-                    
+
                     string image = txtImage.Text.Substring(lastIndex, txtImage.Text.Length - lastIndex);
 
 
@@ -83,13 +108,12 @@ namespace QuanLyQuanCF
                     db.SaveChanges();
                 }
 
-                toolTip1.Show("Lưu thành công.", btnSave, 0, 0, 1000);
+                MessageBox.Show("Lưu thành công!", "Thông Báo", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 Close();
             }
             catch (Exception ex)
             {
-                toolTip1.Show("Lưu thất bại? Error: " + ex.Message, btnSave, 0, 0,
-               1000);
+                MessageBox.Show("Lưu thất bại!", "Thông Báo", MessageBoxButtons.CancelTryContinue, MessageBoxIcon.Warning);
             }
 
         }

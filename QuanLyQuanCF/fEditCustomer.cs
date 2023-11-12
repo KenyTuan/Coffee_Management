@@ -52,12 +52,12 @@ namespace QuanLyQuanCF
 
                 if (string.IsNullOrWhiteSpace(txtName.Text))
                 {
-                    toolTip1.Show("Hãy nhập tên khách hàng?", txtName, 0, 0, 1000);
+                    toolTip1.Show("Không Được để trống!", txtName, 0, 0, 1000);
                     return;
                 }
                 if (txtName.Text.Length > 255)
                 {
-                    toolTip1.Show("Tên khách hàng đã dài hơn 255 ký tự?", txtName, 0, 0, 1000);
+                    toolTip1.Show("Không được quá 255?", txtName, 0, 0, 1000);
                     return;
                 }
 
@@ -67,7 +67,7 @@ namespace QuanLyQuanCF
                     return;
                 }
 
-                if (Regex.IsMatch(txtPhone.Text, @"\d{10}") && txtPhone.Text.Length > 10)
+                if (!Regex.IsMatch(txtPhone.Text, "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$"))
                 {
                     toolTip1.Show("số điện thoại không hợp lệ?", txtPhone, 0, 0, 1000);
                     return;
@@ -99,13 +99,13 @@ namespace QuanLyQuanCF
 
                 db.SaveChanges();
 
-                toolTip1.Show("Saved Successfully", btnSave, 0, 0, 1000);
-                Close();
+                MessageBox.Show("Lưu thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnClose_Click(sender, EventArgs.Empty);
 
             }
             catch (Exception ex)
             {
-                toolTip1.Show("Saved Failed! Error " + ex.Message, btnSave, 0, 0, 1000);
+                MessageBox.Show("Lưu thất bại!", "Thông Báo", MessageBoxButtons.CancelTryContinue, MessageBoxIcon.Warning);
 
             }
 
@@ -116,58 +116,6 @@ namespace QuanLyQuanCF
         {
             e.Cancel = false;
 
-        }
-
-        private void txtName_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtName.Text))
-            {
-                toolTip1.Show("Hãy nhập tên khách hàng?", txtName, 0, 0, 1000);
-                e.Cancel = true;
-            }
-            if (txtName.Text.Length > 255)
-            {
-                toolTip1.Show("Tên khách hàng đã dài hơn 255 ký tự?", txtName, 0, 0, 1000);
-                e.Cancel = true;
-            }
-        }
-
-        private void txtPhone_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtPhone.Text))
-            {
-                toolTip1.Show("Hãy nhập số điện thoại?", txtPhone, 0, 0, 1000);
-                e.Cancel = true;
-            }
-
-            if (Regex.IsMatch(txtPhone.Text, @"\d{10}") && txtPhone.Text.Length > 10)
-            {
-                toolTip1.Show("số điện thoại không hợp lệ?", txtPhone, 0, 0, 1000);
-                e.Cancel = true;
-            }
-        }
-
-        private void txtAddress_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtAddress.Text))
-            {
-                toolTip1.Show("Hãy nhập địa chỉ?", txtAddress, 0, 0, 1000);
-                e.Cancel = true;
-            }
-            if (txtAddress.Text.Length > 255)
-            {
-                toolTip1.Show("Địa chỉ đã dài hơn 255 ký tự?", txtAddress, 0, 0, 1000);
-                e.Cancel = true;
-            }
-        }
-
-        private void dtpBirthday_Validating(object sender, CancelEventArgs e)
-        {
-            if (dtpBirthday.Value.Date > DateTime.Now.Date)
-            {
-                toolTip1.Show("Ngày Sinh không hợp lệ?", dtpBirthday, 0, 0, 1000);
-                e.Cancel = true;
-            }
         }
     }
 }

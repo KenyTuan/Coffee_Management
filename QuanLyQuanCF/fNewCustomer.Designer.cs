@@ -35,31 +35,29 @@
             btnClose = new Button();
             btnSave = new Button();
             panel6 = new Panel();
-            label5 = new Label();
             txtAddress = new TextBox();
+            label5 = new Label();
             panel3 = new Panel();
-            numPoint = new NumericUpDown();
-            label7 = new Label();
-            label3 = new Label();
-            txtName = new TextBox();
-            panel5 = new Panel();
-            dtpBirthday = new DateTimePicker();
-            label6 = new Label();
-            label4 = new Label();
-            txtPhone = new TextBox();
-            panel2 = new Panel();
             cbGender = new CheckBox();
+            label6 = new Label();
+            dtpBirthday = new DateTimePicker();
+            panel5 = new Panel();
+            numPoint = new NumericUpDown();
+            txtPhone = new TextBox();
+            label7 = new Label();
+            label4 = new Label();
+            panel2 = new Panel();
             cbStatus = new CheckBox();
-            label2 = new Label();
-            txtID = new TextBox();
+            txtName = new TextBox();
+            label3 = new Label();
             label1 = new Label();
             toolTip1 = new ToolTip(components);
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel6.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numPoint).BeginInit();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numPoint).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -73,7 +71,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(548, 469);
+            panel1.Size = new Size(495, 469);
             panel1.TabIndex = 0;
             // 
             // panel4
@@ -82,168 +80,149 @@
             panel4.Controls.Add(btnSave);
             panel4.Location = new Point(20, 376);
             panel4.Name = "panel4";
-            panel4.Size = new Size(506, 70);
+            panel4.Size = new Size(449, 70);
             panel4.TabIndex = 16;
             // 
             // btnClose
             // 
             btnClose.CausesValidation = false;
-            btnClose.Location = new Point(304, 21);
+            btnClose.Location = new Point(259, 21);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(94, 29);
-            btnClose.TabIndex = 9;
+            btnClose.TabIndex = 12;
             btnClose.Text = "Đóng";
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(137, 21);
+            btnSave.Location = new Point(116, 21);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
-            btnSave.TabIndex = 8;
+            btnSave.TabIndex = 11;
             btnSave.Text = "Lưu";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
             // panel6
             // 
-            panel6.Controls.Add(label5);
             panel6.Controls.Add(txtAddress);
+            panel6.Controls.Add(label5);
             panel6.Location = new Point(20, 300);
             panel6.Name = "panel6";
-            panel6.Size = new Size(506, 70);
-            panel6.TabIndex = 15;
+            panel6.Size = new Size(449, 70);
+            panel6.TabIndex = 9;
+            // 
+            // txtAddress
+            // 
+            txtAddress.Location = new Point(96, 19);
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(302, 27);
+            txtAddress.TabIndex = 10;
+            txtAddress.Validating += txtAddress_Validating;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(3, 24);
+            label5.Location = new Point(4, 22);
             label5.Name = "label5";
             label5.Size = new Size(60, 20);
             label5.TabIndex = 3;
             label5.Text = "Địa Chỉ:";
             // 
-            // txtAddress
-            // 
-            txtAddress.Location = new Point(96, 17);
-            txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(407, 27);
-            txtAddress.TabIndex = 7;
-            txtAddress.Validating += txtAddress_Validating;
-            // 
             // panel3
             // 
-            panel3.Controls.Add(numPoint);
-            panel3.Controls.Add(label7);
-            panel3.Controls.Add(label3);
-            panel3.Controls.Add(txtName);
+            panel3.Controls.Add(cbGender);
+            panel3.Controls.Add(label6);
+            panel3.Controls.Add(dtpBirthday);
             panel3.Location = new Point(20, 148);
             panel3.Name = "panel3";
-            panel3.Size = new Size(506, 70);
-            panel3.TabIndex = 13;
+            panel3.Size = new Size(449, 70);
+            panel3.TabIndex = 3;
             // 
-            // numPoint
+            // cbGender
             // 
-            numPoint.Enabled = false;
-            numPoint.Location = new Point(440, 18);
-            numPoint.Name = "numPoint";
-            numPoint.Size = new Size(63, 27);
-            numPoint.TabIndex = 4;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(379, 20);
-            label7.Name = "label7";
-            label7.Size = new Size(48, 20);
-            label7.TabIndex = 13;
-            label7.Text = "Điểm:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(3, 24);
-            label3.Name = "label3";
-            label3.Size = new Size(79, 20);
-            label3.TabIndex = 3;
-            label3.Text = "Tên Khách:";
-            // 
-            // txtName
-            // 
-            txtName.Location = new Point(96, 17);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(232, 27);
-            txtName.TabIndex = 3;
-            txtName.Validating += txtName_Validating;
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(dtpBirthday);
-            panel5.Controls.Add(label6);
-            panel5.Controls.Add(label4);
-            panel5.Controls.Add(txtPhone);
-            panel5.Location = new Point(20, 224);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(506, 70);
-            panel5.TabIndex = 15;
-            // 
-            // dtpBirthday
-            // 
-            dtpBirthday.CustomFormat = "dd/MM/yyyy";
-            dtpBirthday.Format = DateTimePickerFormat.Custom;
-            dtpBirthday.Location = new Point(389, 19);
-            dtpBirthday.Name = "dtpBirthday";
-            dtpBirthday.Size = new Size(114, 27);
-            dtpBirthday.TabIndex = 6;
-            dtpBirthday.Validating += dtpBirthday_Validating;
+            cbGender.AutoSize = true;
+            cbGender.Location = new Point(308, 20);
+            cbGender.Name = "cbGender";
+            cbGender.Size = new Size(90, 24);
+            cbGender.TabIndex = 5;
+            cbGender.Text = "Giới Tính";
+            cbGender.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(304, 24);
+            label6.Location = new Point(7, 24);
             label6.Name = "label6";
             label6.Size = new Size(79, 20);
             label6.TabIndex = 11;
             label6.Text = "Ngày Sinh:";
             // 
-            // label4
+            // dtpBirthday
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(3, 24);
-            label4.Name = "label4";
-            label4.Size = new Size(84, 20);
-            label4.TabIndex = 3;
-            label4.Text = "Điện Thoại:";
+            dtpBirthday.CustomFormat = "dd/MM/yyyy";
+            dtpBirthday.Format = DateTimePickerFormat.Custom;
+            dtpBirthday.Location = new Point(96, 20);
+            dtpBirthday.Name = "dtpBirthday";
+            dtpBirthday.Size = new Size(138, 27);
+            dtpBirthday.TabIndex = 4;
+            dtpBirthday.Validating += dtpBirthday_Validating;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(numPoint);
+            panel5.Controls.Add(txtPhone);
+            panel5.Controls.Add(label7);
+            panel5.Controls.Add(label4);
+            panel5.Location = new Point(20, 224);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(449, 70);
+            panel5.TabIndex = 6;
+            // 
+            // numPoint
+            // 
+            numPoint.Enabled = false;
+            numPoint.Location = new Point(347, 24);
+            numPoint.Name = "numPoint";
+            numPoint.Size = new Size(63, 27);
+            numPoint.TabIndex = 8;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(96, 21);
+            txtPhone.Location = new Point(96, 23);
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(136, 27);
-            txtPhone.TabIndex = 5;
+            txtPhone.Size = new Size(190, 27);
+            txtPhone.TabIndex = 7;
             txtPhone.Validating += txtPhone_Validating;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(293, 28);
+            label7.Name = "label7";
+            label7.Size = new Size(48, 20);
+            label7.TabIndex = 13;
+            label7.Text = "Điểm:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(7, 28);
+            label4.Name = "label4";
+            label4.Size = new Size(86, 20);
+            label4.TabIndex = 3;
+            label4.Text = "Số Liên Lạc:";
             // 
             // panel2
             // 
-            panel2.Controls.Add(cbGender);
             panel2.Controls.Add(cbStatus);
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(txtID);
+            panel2.Controls.Add(txtName);
+            panel2.Controls.Add(label3);
             panel2.Location = new Point(20, 72);
             panel2.Name = "panel2";
-            panel2.Size = new Size(506, 70);
-            panel2.TabIndex = 12;
-            // 
-            // cbGender
-            // 
-            cbGender.AutoSize = true;
-            cbGender.Location = new Point(261, 24);
-            cbGender.Name = "cbGender";
-            cbGender.Size = new Size(90, 24);
-            cbGender.TabIndex = 1;
-            cbGender.Text = "Giới Tính";
-            cbGender.UseVisualStyleBackColor = true;
+            panel2.Size = new Size(449, 70);
+            panel2.TabIndex = 0;
             // 
             // cbStatus
             // 
@@ -251,29 +230,29 @@
             cbStatus.Checked = true;
             cbStatus.CheckState = CheckState.Checked;
             cbStatus.Enabled = false;
-            cbStatus.Location = new Point(403, 23);
+            cbStatus.Location = new Point(335, 25);
             cbStatus.Name = "cbStatus";
             cbStatus.Size = new Size(100, 24);
             cbStatus.TabIndex = 4;
             cbStatus.Text = "Trạng Thái";
             cbStatus.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // txtName
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(3, 23);
-            label2.Name = "label2";
-            label2.Size = new Size(71, 20);
-            label2.TabIndex = 2;
-            label2.Text = "ID Khách:";
+            txtName.Location = new Point(96, 21);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(214, 27);
+            txtName.TabIndex = 1;
+            txtName.Validating += txtName_Validating;
             // 
-            // txtID
+            // label3
             // 
-            txtID.Enabled = false;
-            txtID.Location = new Point(96, 21);
-            txtID.Name = "txtID";
-            txtID.Size = new Size(136, 27);
-            txtID.TabIndex = 0;
+            label3.AutoSize = true;
+            label3.Location = new Point(4, 25);
+            label3.Name = "label3";
+            label3.Size = new Size(79, 20);
+            label3.TabIndex = 3;
+            label3.Text = "Tên Khách:";
             // 
             // label1
             // 
@@ -292,15 +271,15 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnClose;
-            ClientSize = new Size(572, 493);
-            ControlBox = false;
+            ClientSize = new Size(519, 493);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "fNewCustomer";
             Text = "Thêm Thành Viên";
             WindowState = FormWindowState.Minimized;
             FormClosing += fNewCustomer_FormClosing;
-            Load += fNewCustomer_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel4.ResumeLayout(false);
@@ -308,9 +287,9 @@
             panel6.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numPoint).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numPoint).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -324,8 +303,6 @@
         private TextBox textBox4;
         private Label label3;
         private TextBox txtName;
-        private Label label2;
-        private TextBox txtID;
         private Label label1;
         private Panel panel6;
         private Label label5;

@@ -47,7 +47,7 @@ namespace QuanLyQuanCF
             fManageIngredient f = new fManageIngredient();
             f.MdiParent = this;
             f.Show();
-           
+
         }
 
         private void menuPreparationRecipe_Click(object sender, EventArgs e)

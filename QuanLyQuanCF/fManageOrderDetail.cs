@@ -87,7 +87,7 @@ namespace QuanLyQuanCF
         {
             try
             {
-                
+
                 Order = new Order();
                 Order.Total = Convert.ToDecimal(txtTotal.Text);
                 Order.CustomerID = Convert.ToInt64(cbCustomer.SelectedValue);
@@ -96,8 +96,8 @@ namespace QuanLyQuanCF
                 Order.OrderTime = DateTime.Now.TimeOfDay;
                 using (EFDbContext db = new EFDbContext())
                 {
-                db.Orders.Add(Order);
-                db.SaveChanges();
+                    db.Orders.Add(Order);
+                    db.SaveChanges();
                 }
                 txtTotal.Text = null;
 
@@ -145,6 +145,7 @@ namespace QuanLyQuanCF
                 item_product[i].Price = productItem.Price;
                 item_product[i].SizeProduct = productItem.ProductSize;
                 item_product[i].Image = Utility.ImagePath + productItem.ImageFile;
+
 
                 flowLayoutPanel1.Controls.Add(item_product[i++]);
             }

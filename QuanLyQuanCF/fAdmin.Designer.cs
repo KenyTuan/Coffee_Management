@@ -38,8 +38,8 @@
             menuProduct = new ToolStripMenuItem();
             menuIngredient = new ToolStripMenuItem();
             menuPreparationRecipe = new ToolStripMenuItem();
-            MenuLogout = new ToolStripMenuItem();
             menuLsOrder = new ToolStripMenuItem();
+            MenuLogout = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,7 +47,7 @@
             // 
             menuStrip1.Dock = DockStyle.Left;
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { menuSystem, menuCategory, menuLsOrder, MenuLogout });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { menuSystem, menuLsOrder, menuCategory, MenuLogout });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(156, 486);
@@ -128,6 +128,16 @@
             menuPreparationRecipe.Text = "Công Thức Chuẩn Bị";
             menuPreparationRecipe.Click += menuPreparationRecipe_Click;
             // 
+            // menuLsOrder
+            // 
+            menuLsOrder.AutoSize = false;
+            menuLsOrder.Image = Properties.Resources.icon_Order11;
+            menuLsOrder.Margin = new Padding(0, 5, 0, 5);
+            menuLsOrder.Name = "menuLsOrder";
+            menuLsOrder.Size = new Size(143, 50);
+            menuLsOrder.Text = "Đơn Hàng";
+            menuLsOrder.Click += menuOrder_Click;
+            // 
             // MenuLogout
             // 
             MenuLogout.AutoSize = false;
@@ -137,16 +147,6 @@
             MenuLogout.Size = new Size(150, 50);
             MenuLogout.Text = "Đăng Xuất";
             MenuLogout.Click += MenuLogout_Click;
-            // 
-            // menuOrder
-            // 
-            menuLsOrder.AutoSize = false;
-            menuLsOrder.Image = Properties.Resources.icon_Order11;
-            menuLsOrder.Margin = new Padding(0, 5, 0, 5);
-            menuLsOrder.Name = "menuOrder";
-            menuLsOrder.Size = new Size(143, 50);
-            menuLsOrder.Text = "Đơn Hàng";
-            menuLsOrder.Click += this.menuOrder_Click;
             // 
             // fAdmin
             // 

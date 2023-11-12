@@ -181,10 +181,12 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.AllowDrop = true;
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.BorderStyle = BorderStyle.Fixed3D;
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 58);
+            flowLayoutPanel1.Margin = new Padding(15, 3, 15, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(726, 346);
             flowLayoutPanel1.TabIndex = 2;
@@ -270,7 +272,9 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnClose;
             ClientSize = new Size(1273, 694);
+            ControlBox = false;
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);

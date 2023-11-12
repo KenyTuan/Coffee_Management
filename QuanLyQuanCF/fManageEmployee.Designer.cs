@@ -58,8 +58,9 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1273, 102);
+            panel1.Size = new Size(1436, 112);
             panel1.TabIndex = 0;
             // 
             // label1
@@ -67,8 +68,9 @@
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(0, 0);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(1273, 102);
+            label1.Size = new Size(1436, 112);
             label1.TabIndex = 0;
             label1.Text = "Quản Lý Nhân Viên";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -78,18 +80,20 @@
             panel2.Controls.Add(btnNew);
             panel2.Controls.Add(txtNameEmployee);
             panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 102);
+            panel2.Location = new Point(0, 112);
+            panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1273, 125);
+            panel2.Size = new Size(1436, 138);
             panel2.TabIndex = 1;
             // 
             // btnNew
             // 
             btnNew.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnNew.AutoSize = true;
-            btnNew.Location = new Point(1018, 29);
+            btnNew.Location = new Point(1285, 41);
+            btnNew.Margin = new Padding(4, 3, 4, 3);
             btnNew.Name = "btnNew";
-            btnNew.Size = new Size(100, 50);
+            btnNew.Size = new Size(138, 55);
             btnNew.TabIndex = 6;
             btnNew.Text = "Thêm";
             btnNew.UseVisualStyleBackColor = true;
@@ -99,10 +103,11 @@
             // 
             txtNameEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtNameEmployee.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNameEmployee.Location = new Point(56, 49);
+            txtNameEmployee.Location = new Point(77, 54);
+            txtNameEmployee.Margin = new Padding(4, 3, 4, 3);
             txtNameEmployee.Name = "txtNameEmployee";
             txtNameEmployee.PlaceholderText = "Nhập Tên Nhân Viên...";
-            txtNameEmployee.Size = new Size(357, 30);
+            txtNameEmployee.Size = new Size(369, 30);
             txtNameEmployee.TabIndex = 5;
             txtNameEmployee.TextChanged += txtNameEmployee_TextChanged;
             // 
@@ -110,9 +115,10 @@
             // 
             panel3.Controls.Add(dataGridView1);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 227);
+            panel3.Location = new Point(0, 250);
+            panel3.Margin = new Padding(4, 3, 4, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1273, 435);
+            panel3.Size = new Size(1436, 235);
             panel3.TabIndex = 2;
             // 
             // dataGridView1
@@ -124,10 +130,11 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { EmployeeID, EmployeeName, Gender, Birthday, Address, Phone, Email, Password, RoleID, Status, Edit, Delete });
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Margin = new Padding(4, 3, 4, 3);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(1273, 435);
+            dataGridView1.Size = new Size(1436, 235);
             dataGridView1.TabIndex = 3;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -139,7 +146,7 @@
             EmployeeID.MinimumWidth = 6;
             EmployeeID.Name = "EmployeeID";
             EmployeeID.ReadOnly = true;
-            EmployeeID.Width = 59;
+            EmployeeID.Width = 65;
             // 
             // EmployeeName
             // 
@@ -149,7 +156,7 @@
             EmployeeName.MinimumWidth = 6;
             EmployeeName.Name = "EmployeeName";
             EmployeeName.ReadOnly = true;
-            EmployeeName.Width = 133;
+            EmployeeName.Width = 156;
             // 
             // Gender
             // 
@@ -159,7 +166,7 @@
             Gender.MinimumWidth = 6;
             Gender.Name = "Gender";
             Gender.ReadOnly = true;
-            Gender.Width = 74;
+            Gender.Width = 94;
             // 
             // Birthday
             // 
@@ -169,7 +176,7 @@
             Birthday.MinimumWidth = 6;
             Birthday.Name = "Birthday";
             Birthday.ReadOnly = true;
-            Birthday.Width = 105;
+            Birthday.Width = 120;
             // 
             // Address
             // 
@@ -179,7 +186,7 @@
             Address.MinimumWidth = 6;
             Address.Name = "Address";
             Address.ReadOnly = true;
-            Address.Width = 86;
+            Address.Width = 101;
             // 
             // Phone
             // 
@@ -189,7 +196,7 @@
             Phone.MinimumWidth = 6;
             Phone.Name = "Phone";
             Phone.ReadOnly = true;
-            Phone.Width = 131;
+            Phone.Width = 154;
             // 
             // Email
             // 
@@ -199,7 +206,7 @@
             Email.MinimumWidth = 6;
             Email.Name = "Email";
             Email.ReadOnly = true;
-            Email.Width = 75;
+            Email.Width = 86;
             // 
             // Password
             // 
@@ -209,7 +216,7 @@
             Password.MinimumWidth = 6;
             Password.Name = "Password";
             Password.ReadOnly = true;
-            Password.Width = 101;
+            Password.Width = 116;
             // 
             // RoleID
             // 
@@ -219,7 +226,7 @@
             RoleID.MinimumWidth = 6;
             RoleID.Name = "RoleID";
             RoleID.ReadOnly = true;
-            RoleID.Width = 110;
+            RoleID.Width = 126;
             // 
             // Status
             // 
@@ -229,7 +236,7 @@
             Status.MinimumWidth = 6;
             Status.Name = "Status";
             Status.ReadOnly = true;
-            Status.Width = 84;
+            Status.Width = 102;
             // 
             // Edit
             // 
@@ -251,17 +258,20 @@
             // 
             // fManageEmployee
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1273, 662);
+            ClientSize = new Size(1436, 485);
             ControlBox = false;
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "fManageEmployee";
-            Text = "Quản Lý Nhân Viên";
+            Text = "Nhân Viên";
             WindowState = FormWindowState.Maximized;
             Activated += fManageEmployee_Activated;
+            FormClosing += fManageEmployee_FormClosing;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

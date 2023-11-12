@@ -46,6 +46,7 @@
             cbCategories = new ComboBox();
             pictureBox1 = new PictureBox();
             btnClose = new Button();
+            ckCategory = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -62,7 +63,7 @@
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 51;
             dataGridView2.RowTemplate.Height = 29;
-            dataGridView2.Size = new Size(972, 435);
+            dataGridView2.Size = new Size(1026, 435);
             dataGridView2.TabIndex = 3;
             dataGridView2.CellClick += dataGridView2_CellClick;
             dataGridView2.CellContentClick += dataGridView2_CellContentClick;
@@ -163,7 +164,7 @@
             label1.Font = new Font("Times New Roman", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(996, 50);
+            label1.Size = new Size(1050, 50);
             label1.TabIndex = 0;
             label1.Text = "Quản lý Sản Phẩm";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -171,7 +172,7 @@
             // btnNew
             // 
             btnNew.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnNew.Location = new Point(874, 66);
+            btnNew.Location = new Point(924, 82);
             btnNew.Name = "btnNew";
             btnNew.Size = new Size(114, 47);
             btnNew.TabIndex = 0;
@@ -182,7 +183,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(52, 118);
+            label3.Location = new Point(104, 241);
             label3.Name = "label3";
             label3.Size = new Size(40, 20);
             label3.TabIndex = 5;
@@ -190,10 +191,11 @@
             // 
             // txtName
             // 
-            txtName.Location = new Point(52, 215);
+            txtName.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtName.Location = new Point(16, 119);
             txtName.Name = "txtName";
             txtName.PlaceholderText = "Tên Sản Phẩm.....";
-            txtName.Size = new Size(302, 27);
+            txtName.Size = new Size(382, 30);
             txtName.TabIndex = 2;
             txtName.TextChanged += txtName_TextChanged;
             // 
@@ -203,9 +205,9 @@
             cbCategories.DisplayMember = "Tất cả";
             cbCategories.FormattingEnabled = true;
             cbCategories.Items.AddRange(new object[] { "Tất cả" });
-            cbCategories.Location = new Point(105, 115);
+            cbCategories.Location = new Point(150, 238);
             cbCategories.Name = "cbCategories";
-            cbCategories.Size = new Size(115, 28);
+            cbCategories.Size = new Size(162, 28);
             cbCategories.TabIndex = 1;
             cbCategories.ValueMember = "*";
             cbCategories.SelectedIndexChanged += cbCategories_SelectedIndexChanged;
@@ -213,7 +215,7 @@
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top;
-            pictureBox1.Location = new Point(467, 66);
+            pictureBox1.Location = new Point(494, 66);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(350, 200);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -223,7 +225,7 @@
             // btnClose
             // 
             btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnClose.Location = new Point(874, 215);
+            btnClose.Location = new Point(924, 152);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(114, 47);
             btnClose.TabIndex = 7;
@@ -231,13 +233,26 @@
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
             // 
+            // ckCategory
+            // 
+            ckCategory.AutoSize = true;
+            ckCategory.Checked = true;
+            ckCategory.CheckState = CheckState.Checked;
+            ckCategory.Location = new Point(16, 164);
+            ckCategory.Name = "ckCategory";
+            ckCategory.Size = new Size(231, 24);
+            ckCategory.TabIndex = 8;
+            ckCategory.Text = "Tìm theo loại sản phẩm và tên";
+            ckCategory.UseVisualStyleBackColor = true;
+            // 
             // fManageProduct
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnClose;
-            ClientSize = new Size(996, 736);
+            ClientSize = new Size(1050, 736);
             ControlBox = false;
+            Controls.Add(ckCategory);
             Controls.Add(btnClose);
             Controls.Add(pictureBox1);
             Controls.Add(label3);
@@ -287,5 +302,6 @@
         private DataGridViewButtonColumn Edit;
         private DataGridViewButtonColumn Delete;
         private Button btnClose;
+        private CheckBox ckCategory;
     }
 }
