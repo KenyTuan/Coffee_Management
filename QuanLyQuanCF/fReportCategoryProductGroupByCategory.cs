@@ -27,14 +27,17 @@ namespace QuanLyQuanCF
             };
 
             reportViewer.LocalReport.DataSources.Add(
-                new ReportDataSource("view_CategoryProduct", db.Product.Select((p => new
+                new ReportDataSource("ds_View_CategoryProduct", db.Product.Select((p => new
                 {
+                    p.CategoryID,
                     p.ProductID,
                     p.ProductName,
-                    p.Quantity,
-                    p.Price,
+                    CategoryName = p.Category.CategoryName,
+                    CategoryStatus = p.Category.Status,
                     p.ProductSize,
-                    p.Category.CategoryName
+                    p.Price,
+                    p.Quantity,
+                    p.Status
                 })).ToList()));
             reportViewer.Dock = DockStyle.Fill;
             reportViewer.LocalReport.ReportPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\rCategoryProduct.rdlc";

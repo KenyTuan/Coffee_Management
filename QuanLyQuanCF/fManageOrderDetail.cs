@@ -24,6 +24,7 @@ namespace QuanLyQuanCF
 
         Order Order;
         OrderDetail orderDetail;
+        EFDbContext context = new EFDbContext();
 
         public static fManageOrderDetail Instance
         {
@@ -87,19 +88,30 @@ namespace QuanLyQuanCF
         {
             try
             {
+                if (string.IsNullOrEmpty( txtNameCustomer.Text))
+                {
+                    toolTip1.Show("Bạn quên chọn thành viên", txtNameCustomer, 0, 0,
+               1000);
+                    return;
+                }
+                if (lsOrder.Items.Count < 0)
+                {
+                    toolTip1.Show("Bạn vẫn chưa chọn món!", lsOrder, 0, 0,
+               1000);
+                    return;
+                }
 
                 Order = new Order();
                 Order.Total = Convert.ToDecimal(txtTotal.Text);
                 Order.CustomerID = Convert.ToInt64(cbCustomer.SelectedValue);
                 Order.EmployeeID = 1;
-                Order.OrderDate = DateTime.Now;
+                Order.OrderDate = DateTime.Now.Date;
                 Order.OrderTime = DateTime.Now.TimeOfDay;
                 using (EFDbContext db = new EFDbContext())
                 {
                     db.Orders.Add(Order);
                     db.SaveChanges();
                 }
-                txtTotal.Text = null;
 
                 using (var db = new EFDbContext())
                 {
@@ -118,8 +130,15 @@ namespace QuanLyQuanCF
                     }
                     lsOrder.Items.Clear();
                 }
+
+                Customer customer = context.Customers.Single(c => c.NameCustomer.Contains(txtNameCustomer.Text));
+                customer.Point = customer.Point + (int)Convert.ToDecimal(txtTotal.Text.Trim());
+                context.SaveChanges();
                 toolTip1.Show("Lưu thành Công", btnPay, 0, 0,
                1000);
+                fManageOrderDetail_Load(sender,e);
+                txtTotal.Text = null;
+
 
             }
             catch (Exception ex)
@@ -162,6 +181,11 @@ namespace QuanLyQuanCF
         private void timer1_Tick(object sender, EventArgs e)
         {
             mtbDate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            txtNameCustomer.Text = cbCustomer.Text;
         }
     }
 }

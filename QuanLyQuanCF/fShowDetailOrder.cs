@@ -24,26 +24,31 @@ namespace QuanLyQuanCF
         {
             using (var db = new EFDbContext())
             {
-                Order order = db.Orders
-                 .Where(o => o.OrderID == OrderID)
-                 .Select(o => new Order
-                 {
-                     OrderID = o.OrderID,
-                     Customer = new Customer { NameCustomer = o.Customer.NameCustomer },
-                     Employee = new Employee { EmployeeName = o.Employee.EmployeeName },
-                     OrderDate = o.OrderDate,
-                     Total = o.Total,
-                     OrderTime = o.OrderTime
-                 })
-                 .FirstOrDefault();
+                var lsOrder = db.OrderDetails.Where(o => o.OrderID == OrderID).Select(od => new
+                {
+                    od.Quantity,
+                    od.Price,
+                    od.ProductID,
+                }).ToList();
+
+
+                var order = db.Orders.Where(o => o.OrderID == OrderID).Select(o => new
+                {
+                    o.OrderID,
+                    o.Total,
+                    o.Customer.NameCustomer,
+                    o.Employee.EmployeeName,
+                    o.OrderDate,
+                    o.OrderTime,
+
+                }).FirstOrDefault();
 
                 lblID.Text = order.OrderID.ToString();
-                lblNameCustomer.Text = order.Customer.NameCustomer.ToString();
-                lblNameEmployee.Text = order.Employee.EmployeeName.ToString();
+                lblNameCustomer.Text = order.NameCustomer.ToString();
+                lblNameEmployee.Text = order.EmployeeName.ToString();
                 lblDateOrder.Text = order.OrderDate.ToString();
                 lblTime.Text = order.OrderTime.ToString();
-
-                var lsOrder = db.OrderDetails.Where(o => o.OrderID == OrderID).ToList();
+                label2.Text = order.Total.ToString();
 
 
 
@@ -51,15 +56,18 @@ namespace QuanLyQuanCF
                 {
                     ListViewItem orderDetail = new ListViewItem();
 
-                    orderDetail.SubItems[0].Text = item.Quantity + "";
-                    orderDetail.SubItems[1].Text = item.Product.ProductName;
-                    orderDetail.SubItems[2].Text = item.Product.ProductSize;
-                    orderDetail.SubItems[3].Text = item.Price + "";
+                    var product = db.Product.Where(o => o.ProductID == item.ProductID).Select(o => new
+                    {
+                        o.ProductName,
+                        o.ProductSize
+                    }).First();
+
+
+                    string[] subItem = { item.Quantity + "", product.ProductName, product.ProductSize, item.Price + "" };
 
 
 
-
-                    lsDetail.Items.Add(orderDetail);
+                    lsDetail.Items.Add(new ListViewItem(subItem));
                 }
             }
         }

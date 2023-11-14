@@ -62,6 +62,11 @@ namespace QuanLyQuanCF
 
         private void fManageOrder_Load(object sender, EventArgs e)
         {
+/*            if (Utility.employee.RoleID == 1)
+            {
+                dataGridView1.Columns[7].Visible = false;
+
+            }*/
             using (EFDbContext db = new EFDbContext())
             {
                 dataGridView1.DataSource = db.Orders.Select(o => new

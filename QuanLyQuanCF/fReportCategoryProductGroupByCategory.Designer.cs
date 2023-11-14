@@ -35,8 +35,11 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "fReportCategoryProductGroupByCategory";
             Text = "fReportCategoryProductGroupByCategory";
+            WindowState = FormWindowState.Maximized;
             Load += fReportCategoryProductGroupByCategory_Load;
             ResumeLayout(false);
         }

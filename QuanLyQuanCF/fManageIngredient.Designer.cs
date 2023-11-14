@@ -54,6 +54,7 @@
             toolTip1 = new ToolTip(components);
             btnImport = new Button();
             btnExport = new Button();
+            btnReport = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -324,6 +325,17 @@
             btnExport.UseVisualStyleBackColor = true;
             btnExport.Click += btnExport_Click;
             // 
+            // btnReport
+            // 
+            btnReport.Location = new Point(13, 80);
+            btnReport.Margin = new Padding(4, 3, 4, 3);
+            btnReport.Name = "btnReport";
+            btnReport.Size = new Size(150, 50);
+            btnReport.TabIndex = 6;
+            btnReport.Text = "Xuất Báo Cáo";
+            btnReport.UseVisualStyleBackColor = true;
+            btnReport.Click += btnReport_Click;
+            // 
             // fManageIngredient
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
@@ -331,6 +343,7 @@
             CancelButton = btnClose;
             ClientSize = new Size(1492, 666);
             ControlBox = false;
+            Controls.Add(btnReport);
             Controls.Add(panel1);
             Controls.Add(btnExport);
             Controls.Add(btnImport);
@@ -344,6 +357,7 @@
             WindowState = FormWindowState.Maximized;
             Activated += fManageIngredient_Activated;
             FormClosing += fManageIngredient_FormClosing;
+            Load += fManageIngredient_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -379,5 +393,6 @@
         private TextBox txtID;
         private Label label3;
         private Button btnClose;
+        private Button btnReport;
     }
 }

@@ -58,7 +58,7 @@ namespace QuanLyQuanCF
                 }
 
 
-                employee = db.Employees.Single(o => o.EmployeeID == Convert.ToInt64(txtID.Text));
+                    employee = db.Employees.Single(o => o.Email.Contains(txtID.Text));
                     if ( employee != null || txtNewPass.Text.Equals(txtPassConfirm.Text))
                     {
                         employee.Password = txtNewPass.Text;

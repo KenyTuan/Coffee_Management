@@ -80,5 +80,15 @@ namespace QuanLyQuanCF
 
 
         }
+
+        private void fManagerCustomer_Load(object sender, EventArgs e)
+        {
+/*            if (Utility.employee.RoleID == 1)
+            {
+                dataGridView1.Columns[8].Visible = false;
+                dataGridView1.Columns[9].Visible = false;
+                btnNew.Visible = false;
+            }*/
+        }
     }
 }

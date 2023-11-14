@@ -272,6 +272,7 @@
             WindowState = FormWindowState.Maximized;
             Activated += fManageEmployee_Activated;
             FormClosing += fManageEmployee_FormClosing;
+            Load += fManageEmployee_Load_1;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

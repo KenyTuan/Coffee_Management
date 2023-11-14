@@ -79,6 +79,10 @@ namespace QuanLyQuanCF
 
         private void fAdmin_Load(object sender, EventArgs e)
         {
+            /*            if (Utility.employee.RoleID == 1)
+                        {
+                            menuEmployee.Visible = false;
+                        }*/
             if (Utility.IsOpeningForm("fManagerOrderDetail"))
                 return;
             fManageOrderDetail f = new fManageOrderDetail();
@@ -108,6 +112,17 @@ namespace QuanLyQuanCF
             new fReportCategoryProductGroupByCategory();
             f.MdiParent = this;
             f.Show();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (Utility.IsOpeningForm("fReportIngredient"))
+                return;
+            fReportIngredient f =
+            new fReportIngredient();
+            f.MdiParent = this;
+            f.Show();
+
         }
     }
 }

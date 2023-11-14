@@ -53,6 +53,8 @@
             btnPay = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
             toolTip1 = new ToolTip(components);
+            txtNameCustomer = new TextBox();
+            btnSelect = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel6.SuspendLayout();
@@ -143,6 +145,8 @@
             // panel6
             // 
             panel6.BorderStyle = BorderStyle.Fixed3D;
+            panel6.Controls.Add(btnSelect);
+            panel6.Controls.Add(txtNameCustomer);
             panel6.Controls.Add(label2);
             panel6.Controls.Add(cbCustomer);
             panel6.Dock = DockStyle.Bottom;
@@ -154,7 +158,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 41);
+            label2.Location = new Point(88, 99);
             label2.Name = "label2";
             label2.Size = new Size(116, 20);
             label2.TabIndex = 1;
@@ -163,7 +167,7 @@
             // cbCustomer
             // 
             cbCustomer.FormattingEnabled = true;
-            cbCustomer.Location = new Point(152, 38);
+            cbCustomer.Location = new Point(60, 41);
             cbCustomer.Name = "cbCustomer";
             cbCustomer.Size = new Size(226, 28);
             cbCustomer.TabIndex = 0;
@@ -268,6 +272,23 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
+            // txtNameCustomer
+            // 
+            txtNameCustomer.Location = new Point(210, 96);
+            txtNameCustomer.Name = "txtNameCustomer";
+            txtNameCustomer.Size = new Size(290, 27);
+            txtNameCustomer.TabIndex = 2;
+            // 
+            // btnSelect
+            // 
+            btnSelect.Location = new Point(320, 44);
+            btnSelect.Name = "btnSelect";
+            btnSelect.Size = new Size(94, 29);
+            btnSelect.TabIndex = 3;
+            btnSelect.Text = "Chọn";
+            btnSelect.UseVisualStyleBackColor = true;
+            btnSelect.Click += btnSelect_Click;
+            // 
             // fManageOrderDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -321,5 +342,7 @@
         private Label label2;
         private ComboBox cbCustomer;
         private ToolTip toolTip1;
+        private Button btnSelect;
+        private TextBox txtNameCustomer;
     }
 }

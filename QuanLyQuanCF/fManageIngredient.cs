@@ -26,6 +26,7 @@ namespace QuanLyQuanCF
 
         private void fManageIngredient_Activated(object sender, EventArgs e)
         {
+
             label2.Text = "Tạo Mới";
             txtAmount.ValidatingType = typeof(decimal);
 
@@ -216,6 +217,26 @@ namespace QuanLyQuanCF
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            if (Utility.IsOpeningForm("fReportIngredient"))
+                return;
+            fReportIngredient f = new fReportIngredient();
+            f.ShowDialog();
+        }
+
+        private void fManageIngredient_Load(object sender, EventArgs e)
+        {
+/*            if (Utility.employee.RoleID == 1)
+            {
+                panel1.Visible = false;
+                panel2.Visible = false;
+                dataGridView1.Columns[4].Visible = false;
+                dataGridView1.Columns[5].Visible = false;
+
+            }*/
         }
     }
 }

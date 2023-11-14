@@ -225,7 +225,6 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "fShowDetailOrder";
-            StartPosition = FormStartPosition.CenterParent;
             Text = "Thông Tin Đơn Hàng";
             WindowState = FormWindowState.Minimized;
             Load += fShowDetailOrder_Load;

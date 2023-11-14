@@ -82,5 +82,15 @@ namespace QuanLyQuanCF
         {
             e.Cancel = false;
         }
+
+        private void fManageEmployee_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void fManageEmployee_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

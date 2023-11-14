@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
             panel1 = new Panel();
+            lblMessage = new Label();
             linkLabel1 = new LinkLabel();
             label3 = new Label();
             label2 = new Label();
@@ -44,6 +45,7 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(lblMessage);
             panel1.Controls.Add(linkLabel1);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
@@ -56,6 +58,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(547, 256);
             panel1.TabIndex = 0;
+            // 
+            // lblMessage
+            // 
+            lblMessage.AutoSize = true;
+            lblMessage.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblMessage.Location = new Point(92, 30);
+            lblMessage.Name = "lblMessage";
+            lblMessage.Size = new Size(72, 17);
+            lblMessage.TabIndex = 8;
+            lblMessage.Text = "Chào Bạn!";
             // 
             // linkLabel1
             // 
@@ -84,9 +96,9 @@
             label2.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(13, 69);
             label2.Name = "label2";
-            label2.Size = new Size(94, 17);
+            label2.Size = new Size(44, 17);
             label2.TabIndex = 5;
-            label2.Text = "ID Nhân Viên:";
+            label2.Text = "Email:";
             // 
             // txtUsername
             // 
@@ -158,5 +170,6 @@
         private Button btnLogin;
         private Label label1;
         private LinkLabel linkLabel1;
+        private Label lblMessage;
     }
 }
