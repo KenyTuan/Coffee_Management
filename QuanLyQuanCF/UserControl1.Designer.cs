@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            lblName = new Label();
             pbProduct = new PictureBox();
             lsIngredient = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             panel2 = new Panel();
-            lblName = new Label();
             panel3 = new Panel();
             panel4 = new Panel();
             btnDelete = new Button();
@@ -43,6 +43,7 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbProduct).BeginInit();
             panel2.SuspendLayout();
+            panel3.SuspendLayout();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
             SuspendLayout();
@@ -50,19 +51,29 @@
             // panel1
             // 
             panel1.Controls.Add(lblName);
-            panel1.Controls.Add(pbProduct);
             panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 107);
+            panel1.Location = new Point(0, 115);
             panel1.Name = "panel1";
-            panel1.Size = new Size(286, 43);
+            panel1.Size = new Size(287, 43);
             panel1.TabIndex = 0;
+            // 
+            // lblName
+            // 
+            lblName.Dock = DockStyle.Fill;
+            lblName.Location = new Point(0, 0);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(287, 43);
+            lblName.TabIndex = 0;
+            lblName.Text = "Sản Phẩm";
+            lblName.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pbProduct
             // 
             pbProduct.Dock = DockStyle.Fill;
             pbProduct.Location = new Point(0, 0);
             pbProduct.Name = "pbProduct";
-            pbProduct.Size = new Size(286, 43);
+            pbProduct.Size = new Size(287, 115);
+            pbProduct.SizeMode = PictureBoxSizeMode.StretchImage;
             pbProduct.TabIndex = 0;
             pbProduct.TabStop = false;
             // 
@@ -73,7 +84,7 @@
             lsIngredient.GridLines = true;
             lsIngredient.Location = new Point(0, 0);
             lsIngredient.Name = "lsIngredient";
-            lsIngredient.Size = new Size(286, 148);
+            lsIngredient.Size = new Size(287, 148);
             lsIngredient.TabIndex = 1;
             lsIngredient.UseCompatibleStateImageBehavior = false;
             lsIngredient.View = View.Details;
@@ -92,27 +103,18 @@
             // 
             panel2.Controls.Add(lsIngredient);
             panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 150);
+            panel2.Location = new Point(0, 158);
             panel2.Name = "panel2";
-            panel2.Size = new Size(286, 148);
+            panel2.Size = new Size(287, 148);
             panel2.TabIndex = 2;
-            // 
-            // lblName
-            // 
-            lblName.Dock = DockStyle.Fill;
-            lblName.Location = new Point(0, 0);
-            lblName.Name = "lblName";
-            lblName.Size = new Size(286, 43);
-            lblName.TabIndex = 0;
-            lblName.Text = "Sản Phẩm";
-            lblName.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel3
             // 
+            panel3.Controls.Add(pbProduct);
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(286, 107);
+            panel3.Size = new Size(287, 115);
             panel3.TabIndex = 3;
             // 
             // panel4
@@ -122,13 +124,13 @@
             panel4.Dock = DockStyle.Bottom;
             panel4.Location = new Point(0, 304);
             panel4.Name = "panel4";
-            panel4.Size = new Size(286, 55);
+            panel4.Size = new Size(287, 55);
             panel4.TabIndex = 4;
             // 
             // btnDelete
             // 
             btnDelete.Dock = DockStyle.Right;
-            btnDelete.Location = new Point(143, 0);
+            btnDelete.Location = new Point(144, 0);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(143, 55);
             btnDelete.TabIndex = 1;
@@ -154,7 +156,7 @@
             panel5.Dock = DockStyle.Fill;
             panel5.Location = new Point(0, 0);
             panel5.Name = "panel5";
-            panel5.Size = new Size(286, 359);
+            panel5.Size = new Size(287, 359);
             panel5.TabIndex = 4;
             // 
             // UserControl1
@@ -163,10 +165,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel5);
             Name = "UserControl1";
-            Size = new Size(286, 359);
+            Size = new Size(287, 359);
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbProduct).EndInit();
             panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel5.ResumeLayout(false);
             ResumeLayout(false);

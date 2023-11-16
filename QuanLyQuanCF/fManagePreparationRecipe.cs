@@ -15,10 +15,12 @@ namespace QuanLyQuanCF
     {
 
         UserControl1 userControl1;
+        string txtProduct;
         public fManagePreparationRecipe()
         {
             InitializeComponent();
             userControl1 = new UserControl1();
+            txtProduct = (string.IsNullOrWhiteSpace(textBox1.Text)) ? "" : textBox1.Text;
 
         }
 
@@ -29,12 +31,16 @@ namespace QuanLyQuanCF
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-
+            if (Utility.IsOpeningForm("fNewpreparationRecipe"))
+                return;
+            fNewpreparationRecipe f = new fNewpreparationRecipe();
+            f.ShowDialog();
+            Close();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            fManagePreparationRecipe_Load(sender, e);
         }
 
         private void fManagePreparationRecipe_Load(object sender, EventArgs e)
@@ -42,46 +48,50 @@ namespace QuanLyQuanCF
 
             using (var db = new EFDbContext())
             {
-                var products = db.Product.Select(p => new
+                var products = db.Product.Where(p=> p.ProductName.Contains(txtProduct)).Select(p => new
                 {
                     p.ProductID,
                     p.ProductName,
+                    p.ProductSize,
                     p.ImageFile
                 });
-
                 var ingredientOrder = db.IngredientOrders.Select(
-                    i => new
+                    ig => new
                     {
-                        i.ProductID,
-                        i.IngredientOrderID,
-                        i.Product.ProductName,
-                        i.Product.ImageFile,
-                        i.Ingredient.IngredientName,
-                        i.Capacity,
+                        ig.ProductID,
+                        ig.IngredientOrderID,
+                        ig.Product.ProductName,
+                        ig.Product.ImageFile,
+                        ig.Ingredient.IngredientName,
+                        ig.Capacity,
+                        ig.Amount
+                    }).ToList();
 
-                    }).OrderBy(i => i.ProductID).ToList();
+                int i = 0;
 
                 UserControl1[] userControl1s = new UserControl1[products.Count()];
-                int i = 0;
                 foreach (var p in products)
                 {
                     userControl1s[i] = new UserControl1();
-                    userControl1s[i].Title = p.ProductName;
+                    userControl1s[i].Title = p.ProductName + " " + p.ProductSize;
                     userControl1s[i].Image = Utility.ImagePath + p.ImageFile;
 
-                    foreach (var ig in ingredientOrder)
+                    
+
+                    foreach (var item in ingredientOrder)
                     {
-                        if (p.ProductID == ig.ProductID)
+                        if (item.ProductID == p.ProductID)
                         {
-                            string[] result = { ig.IngredientName, ig.Capacity + "" };
-                            userControl1s[i].List = new ListViewItem(result);
+                            string[] data = new string[] { item.IngredientName, item.Amount.ToString() };
+
+
+                            userControl1s[i].List = new ListViewItem(data);
                         }
-                        else
-                        {
-                            flowLayoutPanel1.Controls.Add(userControl1s[i++]);
-                            break;
-                        }
+                        
+
                     }
+                    flowLayoutPanel1.Controls.Add(userControl1s[i++]);
+                    
                 }
 
             }

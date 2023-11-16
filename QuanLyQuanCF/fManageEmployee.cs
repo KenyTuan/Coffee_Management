@@ -77,5 +77,20 @@ namespace QuanLyQuanCF
                 fManageEmployee_Activated(sender, e);
             }
         }
+
+        private void fManageEmployee_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = false;
+        }
+
+        private void fManageEmployee_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void fManageEmployee_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

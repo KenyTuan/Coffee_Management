@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fNewEmployee));
             panel2 = new Panel();
-            txtID = new TextBox();
             btnClose = new Button();
             btnSave = new Button();
             cbRole = new ComboBox();
@@ -58,7 +58,6 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(txtID);
             panel2.Controls.Add(btnClose);
             panel2.Controls.Add(btnSave);
             panel2.Controls.Add(cbRole);
@@ -80,16 +79,8 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 81);
             panel2.Name = "panel2";
-            panel2.Size = new Size(800, 369);
+            panel2.Size = new Size(639, 318);
             panel2.TabIndex = 3;
-            // 
-            // txtID
-            // 
-            txtID.Enabled = false;
-            txtID.Location = new Point(647, 25);
-            txtID.Name = "txtID";
-            txtID.Size = new Size(125, 27);
-            txtID.TabIndex = 18;
             // 
             // btnClose
             // 
@@ -125,11 +116,10 @@
             cbGender.AutoSize = true;
             cbGender.Checked = true;
             cbGender.CheckState = CheckState.Checked;
-            cbGender.Enabled = false;
             cbGender.Location = new Point(512, 82);
             cbGender.Name = "cbGender";
             cbGender.Size = new Size(90, 24);
-            cbGender.TabIndex = 14;
+            cbGender.TabIndex = 1;
             cbGender.Text = "Giới Tính";
             cbGender.UseVisualStyleBackColor = true;
             // 
@@ -139,6 +129,7 @@
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(314, 27);
             txtAddress.TabIndex = 13;
+            txtAddress.Validating += txtAddress_Validating;
             // 
             // label8
             // 
@@ -165,36 +156,41 @@
             dtkBirthday.Location = new Point(491, 166);
             dtkBirthday.Name = "dtkBirthday";
             dtkBirthday.Size = new Size(111, 27);
-            dtkBirthday.TabIndex = 10;
-            dtkBirthday.Value = new DateTime(1999, 12, 31, 0, 0, 0, 0);
+            dtkBirthday.TabIndex = 5;
+            dtkBirthday.Value = new DateTime(2023, 11, 12, 0, 0, 0, 0);
+            dtkBirthday.Validating += dtkBirthday_Validating;
             // 
             // txtPhone
             // 
             txtPhone.Location = new Point(149, 164);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(156, 27);
-            txtPhone.TabIndex = 9;
+            txtPhone.TabIndex = 4;
+            txtPhone.Validating += txtPhone_Validating;
             // 
             // txtPassword
             // 
             txtPassword.Location = new Point(148, 126);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(314, 27);
-            txtPassword.TabIndex = 8;
+            txtPassword.TabIndex = 3;
+            txtPassword.Validating += txtPassword_Validating;
             // 
             // txtEmail
             // 
             txtEmail.Location = new Point(148, 83);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(314, 27);
-            txtEmail.TabIndex = 7;
+            txtEmail.TabIndex = 2;
+            txtEmail.Validating += txtEmail_Validating;
             // 
             // txtName
             // 
             txtName.Location = new Point(148, 38);
             txtName.Name = "txtName";
             txtName.Size = new Size(314, 27);
-            txtName.TabIndex = 6;
+            txtName.TabIndex = 0;
+            txtName.Validating += txtName_Validating;
             // 
             // cbStatus
             // 
@@ -259,7 +255,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 81);
+            panel1.Size = new Size(639, 81);
             panel1.TabIndex = 2;
             // 
             // label1
@@ -268,20 +264,28 @@
             label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(800, 81);
+            label1.Size = new Size(639, 81);
             label1.TabIndex = 0;
             label1.Text = "Thêm Nhân Viên";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // fNewEmployee
             // 
+            AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            CancelButton = btnClose;
+            ClientSize = new Size(639, 399);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "fNewEmployee";
-            Text = "fNewEmployee";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Nhân Viên";
+            WindowState = FormWindowState.Minimized;
+            FormClosing += fNewEmployee_FormClosing;
             Load += fNewEmployee_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -313,6 +317,5 @@
         private Panel panel1;
         private Label label1;
         private ToolTip toolTip1;
-        private TextBox txtID;
     }
 }

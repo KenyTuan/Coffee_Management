@@ -32,14 +32,16 @@
             menuStrip1 = new MenuStrip();
             menuSystem = new ToolStripMenuItem();
             menuOrderDetail = new ToolStripMenuItem();
+            menuLsOrder = new ToolStripMenuItem();
             menuCategory = new ToolStripMenuItem();
             MenuCustomer = new ToolStripMenuItem();
             menuEmployee = new ToolStripMenuItem();
             menuProduct = new ToolStripMenuItem();
-            menuIngredient = new ToolStripMenuItem();
             menuPreparationRecipe = new ToolStripMenuItem();
+            menuReport = new ToolStripMenuItem();
+            toolStripMenuItem1 = new ToolStripMenuItem();
             MenuLogout = new ToolStripMenuItem();
-            menuLsOrder = new ToolStripMenuItem();
+            menuIngredient = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,7 +49,7 @@
             // 
             menuStrip1.Dock = DockStyle.Left;
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { menuSystem, menuCategory, menuLsOrder, MenuLogout });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { menuSystem, menuLsOrder, menuCategory, menuReport, MenuLogout });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(156, 486);
@@ -73,10 +75,20 @@
             menuOrderDetail.Text = "Gọi Món";
             menuOrderDetail.Click += menuOrderDetail_Click;
             // 
+            // menuLsOrder
+            // 
+            menuLsOrder.AutoSize = false;
+            menuLsOrder.Image = Properties.Resources.icon_Order11;
+            menuLsOrder.Margin = new Padding(0, 5, 0, 5);
+            menuLsOrder.Name = "menuLsOrder";
+            menuLsOrder.Size = new Size(143, 50);
+            menuLsOrder.Text = "Đơn Hàng";
+            menuLsOrder.Click += menuOrder_Click;
+            // 
             // menuCategory
             // 
             menuCategory.AutoSize = false;
-            menuCategory.DropDownItems.AddRange(new ToolStripItem[] { MenuCustomer, menuEmployee, menuProduct, menuIngredient, menuPreparationRecipe });
+            menuCategory.DropDownItems.AddRange(new ToolStripItem[] { MenuCustomer, menuEmployee, menuProduct, menuPreparationRecipe, menuIngredient });
             menuCategory.Image = Properties.Resources.icon_category;
             menuCategory.Margin = new Padding(0, 5, 0, 5);
             menuCategory.Name = "menuCategory";
@@ -110,15 +122,6 @@
             menuProduct.Text = "Sản Phẩm";
             menuProduct.Click += menuProduct_Click;
             // 
-            // menuIngredient
-            // 
-            menuIngredient.AutoSize = false;
-            menuIngredient.Image = Properties.Resources.icon_Ingredient;
-            menuIngredient.Name = "menuIngredient";
-            menuIngredient.Size = new Size(200, 35);
-            menuIngredient.Text = "Nguyên Liệu";
-            menuIngredient.Click += menuIngredient_Click;
-            // 
             // menuPreparationRecipe
             // 
             menuPreparationRecipe.AutoSize = false;
@@ -127,6 +130,23 @@
             menuPreparationRecipe.Size = new Size(200, 35);
             menuPreparationRecipe.Text = "Công Thức Chuẩn Bị";
             menuPreparationRecipe.Click += menuPreparationRecipe_Click;
+            // 
+            // menuReport
+            // 
+            menuReport.AutoSize = false;
+            menuReport.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
+            menuReport.Margin = new Padding(0, 5, 0, 5);
+            menuReport.Name = "menuReport";
+            menuReport.Size = new Size(150, 50);
+            menuReport.Text = "Report";
+            menuReport.Click += menuReport_Click;
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(157, 26);
+            toolStripMenuItem1.Text = "Sản Phẩm";
+            toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // MenuLogout
             // 
@@ -138,15 +158,14 @@
             MenuLogout.Text = "Đăng Xuất";
             MenuLogout.Click += MenuLogout_Click;
             // 
-            // menuOrder
+            // menuIngredient
             // 
-            menuLsOrder.AutoSize = false;
-            menuLsOrder.Image = Properties.Resources.icon_Order11;
-            menuLsOrder.Margin = new Padding(0, 5, 0, 5);
-            menuLsOrder.Name = "menuOrder";
-            menuLsOrder.Size = new Size(143, 50);
-            menuLsOrder.Text = "Đơn Hàng";
-            menuLsOrder.Click += this.menuOrder_Click;
+            menuIngredient.AutoSize = false;
+            menuIngredient.Image = Properties.Resources.icon_Ingredient;
+            menuIngredient.Name = "menuIngredient";
+            menuIngredient.Size = new Size(200, 35);
+            menuIngredient.Text = "Nguyên Liệu";
+            menuIngredient.Click += menuIngredient_Click;
             // 
             // fAdmin
             // 
@@ -177,9 +196,11 @@
         private ToolStripMenuItem menuProduct;
         private ToolStripMenuItem MenuLogout;
         private ToolStripMenuItem menuLsOrder;
-        private ToolStripMenuItem menuIngredient;
         private ToolStripMenuItem menuPreparationRecipe;
         private ToolStripMenuItem menuEmployee;
         private ToolStripMenuItem menuOrderDetail;
+        private ToolStripMenuItem menuReport;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem menuIngredient;
     }
 }

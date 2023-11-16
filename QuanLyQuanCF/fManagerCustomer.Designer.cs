@@ -30,8 +30,6 @@
         {
             label1 = new Label();
             dataGridView1 = new DataGridView();
-            txtNameCustomer = new TextBox();
-            btnNew = new Button();
             CustomerID = new DataGridViewTextBoxColumn();
             NameCustomer = new DataGridViewTextBoxColumn();
             Gender = new DataGridViewCheckBoxColumn();
@@ -42,6 +40,8 @@
             Status = new DataGridViewCheckBoxColumn();
             Edit = new DataGridViewButtonColumn();
             Delete = new DataGridViewButtonColumn();
+            txtNameCustomer = new TextBox();
+            btnNew = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -71,28 +71,6 @@
             dataGridView1.Size = new Size(971, 370);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // txtNameCustomer
-            // 
-            txtNameCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtNameCustomer.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNameCustomer.Location = new Point(591, 101);
-            txtNameCustomer.Name = "txtNameCustomer";
-            txtNameCustomer.PlaceholderText = "Nhập Tên Khách Hàng......";
-            txtNameCustomer.Size = new Size(357, 30);
-            txtNameCustomer.TabIndex = 4;
-            txtNameCustomer.TextChanged += txtNameCustomer_TextChanged;
-            // 
-            // btnNew
-            // 
-            btnNew.AutoSize = true;
-            btnNew.Location = new Point(43, 81);
-            btnNew.Name = "btnNew";
-            btnNew.Size = new Size(100, 50);
-            btnNew.TabIndex = 1;
-            btnNew.Text = "Thêm";
-            btnNew.UseVisualStyleBackColor = true;
-            btnNew.Click += btnNew_Click;
             // 
             // CustomerID
             // 
@@ -192,6 +170,28 @@
             Delete.Text = "Xóa";
             Delete.Width = 125;
             // 
+            // txtNameCustomer
+            // 
+            txtNameCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtNameCustomer.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNameCustomer.Location = new Point(591, 101);
+            txtNameCustomer.Name = "txtNameCustomer";
+            txtNameCustomer.PlaceholderText = "Nhập Tên Khách Hàng......";
+            txtNameCustomer.Size = new Size(357, 30);
+            txtNameCustomer.TabIndex = 4;
+            txtNameCustomer.TextChanged += txtNameCustomer_TextChanged;
+            // 
+            // btnNew
+            // 
+            btnNew.AutoSize = true;
+            btnNew.Location = new Point(43, 81);
+            btnNew.Name = "btnNew";
+            btnNew.Size = new Size(100, 50);
+            btnNew.TabIndex = 1;
+            btnNew.Text = "Thêm";
+            btnNew.UseVisualStyleBackColor = true;
+            btnNew.Click += btnNew_Click;
+            // 
             // fManagerCustomer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -206,6 +206,7 @@
             Text = "ManagerCustomer";
             WindowState = FormWindowState.Maximized;
             Activated += fManagerCustomer_Activated;
+            Load += fManagerCustomer_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

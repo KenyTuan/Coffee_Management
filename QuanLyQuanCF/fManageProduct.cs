@@ -17,6 +17,7 @@ namespace QuanLyQuanCF
 
         public string CategoryName;
 
+
         public fManageProduct()
         {
             InitializeComponent();
@@ -25,6 +26,12 @@ namespace QuanLyQuanCF
 
         private void fManageProduct_Load(object sender, EventArgs e)
         {
+/*            if (Utility.employee.RoleID == 1)
+            {
+                btnNew.Visible = false;
+                dataGridView2.Columns[8].Visible = false;
+                dataGridView2.Columns[9].Visible = false;
+            }*/
             using (var db = new EFDbContext())
             {
                 foreach (var item in db.Category.Select(c => new { c.CategoryName }).ToList())
@@ -44,6 +51,7 @@ namespace QuanLyQuanCF
         {
             using (var db = new EFDbContext())
             {
+
                 CategoryName = (cbCategories.Text == "Tất cả") ? "" : cbCategories.Text;
                 dataGridView2.DataSource = db.Product.Where(p => p.Category.CategoryName.Contains(CategoryName)).Select(p => new
                 {
@@ -63,18 +71,37 @@ namespace QuanLyQuanCF
         {
             using (var db = new EFDbContext())
             {
-                dataGridView2.DataSource = db.Product.Where(p =>
-                p.ProductName.Contains(txtName.Text)).Select(p => new
+                if (ckCategory.Checked)
                 {
-                    p.ProductID,
-                    p.ProductName,
-                    p.ProductSize,
-                    p.Category.CategoryName,
-                    p.Quantity,
-                    p.Price,
-                    p.ImageFile,
-                    p.Status
-                }).ToList();
+                    dataGridView2.DataSource = db.Product.Where(p =>
+                   p.ProductName.Contains(txtName.Text) && (p.Category.CategoryName == CategoryName ||
+                   cbCategories.SelectedIndex < 0)).Select(p => new
+                   {
+                       p.ProductID,
+                       p.ProductName,
+                       p.ProductSize,
+                       p.Category.CategoryName,
+                       p.Quantity,
+                       p.Price,
+                       p.ImageFile,
+                       p.Status
+                   }).ToList();
+                }
+                else
+                {
+                    dataGridView2.DataSource = db.Product.Where(p =>
+                    p.ProductName.Contains(txtName.Text)).Select(p => new
+                    {
+                        p.ProductID,
+                        p.ProductName,
+                        p.ProductSize,
+                        p.Category.CategoryName,
+                        p.Quantity,
+                        p.Price,
+                        p.ImageFile,
+                        p.Status
+                    }).ToList();
+                }
             }
         }
 

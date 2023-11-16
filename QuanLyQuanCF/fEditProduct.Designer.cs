@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fEditProduct));
             panel1 = new Panel();
             panel9 = new Panel();
             label3 = new Label();
@@ -95,7 +96,7 @@
             panel9.Location = new Point(3, 210);
             panel9.Name = "panel9";
             panel9.Size = new Size(341, 54);
-            panel9.TabIndex = 6;
+            panel9.TabIndex = 4;
             // 
             // label3
             // 
@@ -103,17 +104,17 @@
             label3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(19, 20);
             label3.Name = "label3";
-            label3.Size = new Size(55, 22);
+            label3.Size = new Size(52, 22);
             label3.TabIndex = 1;
-            label3.Text = "Type:";
+            label3.Text = "Loại:";
             // 
             // cbCategories
             // 
             cbCategories.FormattingEnabled = true;
             cbCategories.Location = new Point(107, 14);
             cbCategories.Name = "cbCategories";
-            cbCategories.Size = new Size(177, 28);
-            cbCategories.TabIndex = 3;
+            cbCategories.Size = new Size(174, 28);
+            cbCategories.TabIndex = 5;
             // 
             // panel8
             // 
@@ -148,7 +149,7 @@
             btnBrowse.Location = new Point(218, 50);
             btnBrowse.Name = "btnBrowse";
             btnBrowse.Size = new Size(79, 29);
-            btnBrowse.TabIndex = 5;
+            btnBrowse.TabIndex = 9;
             btnBrowse.Text = "Browse";
             btnBrowse.UseVisualStyleBackColor = false;
             btnBrowse.Click += btnBrowse_Click;
@@ -159,9 +160,9 @@
             label7.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label7.Location = new Point(19, 17);
             label7.Name = "label7";
-            label7.Size = new Size(103, 22);
+            label7.Size = new Size(130, 22);
             label7.TabIndex = 5;
-            label7.Text = "Link Image:";
+            label7.Text = "Hình Sản Phẩm";
             // 
             // txtImage
             // 
@@ -178,7 +179,7 @@
             panel6.Location = new Point(3, 465);
             panel6.Name = "panel6";
             panel6.Size = new Size(611, 63);
-            panel6.TabIndex = 8;
+            panel6.TabIndex = 9;
             // 
             // btnCancel
             // 
@@ -186,8 +187,8 @@
             btnCancel.Location = new Point(340, 17);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(109, 29);
-            btnCancel.TabIndex = 7;
-            btnCancel.Text = "Cancel";
+            btnCancel.TabIndex = 11;
+            btnCancel.Text = "Đóng";
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
@@ -197,8 +198,8 @@
             btnSave.Location = new Point(151, 17);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(109, 29);
-            btnSave.TabIndex = 6;
-            btnSave.Text = "Save";
+            btnSave.TabIndex = 10;
+            btnSave.Text = "Xác Nhận";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
@@ -209,14 +210,14 @@
             panel5.Location = new Point(3, 270);
             panel5.Name = "panel5";
             panel5.Size = new Size(341, 54);
-            panel5.TabIndex = 5;
+            panel5.TabIndex = 6;
             // 
             // mPrice
             // 
             mPrice.Location = new Point(107, 15);
             mPrice.Name = "mPrice";
             mPrice.Size = new Size(153, 27);
-            mPrice.TabIndex = 4;
+            mPrice.TabIndex = 7;
             // 
             // label6
             // 
@@ -224,9 +225,9 @@
             label6.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label6.Location = new Point(19, 17);
             label6.Name = "label6";
-            label6.Size = new Size(52, 22);
+            label6.Size = new Size(45, 22);
             label6.TabIndex = 3;
-            label6.Text = "Price";
+            label6.Text = "Giá:";
             // 
             // panel4
             // 
@@ -238,7 +239,7 @@
             panel4.Location = new Point(3, 87);
             panel4.Name = "panel4";
             panel4.Size = new Size(611, 54);
-            panel4.TabIndex = 5;
+            panel4.TabIndex = 2;
             // 
             // txtID
             // 
@@ -246,7 +247,7 @@
             txtID.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtID.Location = new Point(107, 12);
             txtID.Name = "txtID";
-            txtID.Size = new Size(153, 30);
+            txtID.Size = new Size(124, 30);
             txtID.TabIndex = 3;
             // 
             // label8
@@ -255,9 +256,9 @@
             label8.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label8.Location = new Point(19, 18);
             label8.Name = "label8";
-            label8.Size = new Size(41, 22);
+            label8.Size = new Size(42, 22);
             label8.TabIndex = 3;
-            label8.Text = "ID: ";
+            label8.Text = "Mã:";
             // 
             // ckbStatus
             // 
@@ -267,11 +268,11 @@
             ckbStatus.Enabled = false;
             ckbStatus.FlatStyle = FlatStyle.Popup;
             ckbStatus.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            ckbStatus.Location = new Point(511, 16);
+            ckbStatus.Location = new Point(483, 16);
             ckbStatus.Name = "ckbStatus";
-            ckbStatus.Size = new Size(76, 26);
+            ckbStatus.Size = new Size(115, 26);
             ckbStatus.TabIndex = 5;
-            ckbStatus.Text = "Status";
+            ckbStatus.Text = "Trạng Thái";
             ckbStatus.UseVisualStyleBackColor = true;
             // 
             // cbSize
@@ -279,16 +280,16 @@
             cbSize.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbSize.FormattingEnabled = true;
             cbSize.Items.AddRange(new object[] { "S", "M", "L" });
-            cbSize.Location = new Point(375, 12);
+            cbSize.Location = new Point(332, 15);
             cbSize.Name = "cbSize";
             cbSize.Size = new Size(118, 30);
-            cbSize.TabIndex = 1;
+            cbSize.TabIndex = 3;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(313, 15);
+            label4.Location = new Point(276, 18);
             label4.Name = "label4";
             label4.Size = new Size(50, 22);
             label4.TabIndex = 3;
@@ -303,7 +304,7 @@
             panel3.Location = new Point(3, 147);
             panel3.Name = "panel3";
             panel3.Size = new Size(611, 54);
-            panel3.TabIndex = 4;
+            panel3.TabIndex = 0;
             // 
             // label2
             // 
@@ -311,40 +312,40 @@
             label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(19, 17);
             label2.Name = "label2";
-            label2.Size = new Size(62, 22);
+            label2.Size = new Size(124, 22);
             label2.TabIndex = 1;
-            label2.Text = "Name:";
+            label2.Text = "Tên sản phẩm:";
             // 
             // txtName
             // 
             txtName.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtName.Location = new Point(107, 12);
+            txtName.Location = new Point(149, 14);
             txtName.Name = "txtName";
             txtName.Size = new Size(234, 30);
-            txtName.TabIndex = 0;
+            txtName.TabIndex = 1;
             // 
             // numQuantity
             // 
             numQuantity.BackColor = SystemColors.HighlightText;
+            numQuantity.Enabled = false;
             numQuantity.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             numQuantity.ImeMode = ImeMode.NoControl;
-            numQuantity.Location = new Point(466, 11);
+            numQuantity.Location = new Point(510, 14);
             numQuantity.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             numQuantity.Name = "numQuantity";
-            numQuantity.Size = new Size(98, 30);
+            numQuantity.Size = new Size(72, 30);
             numQuantity.TabIndex = 2;
             numQuantity.TextAlign = HorizontalAlignment.Center;
-            numQuantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(368, 17);
+            label5.Location = new Point(409, 17);
             label5.Name = "label5";
-            label5.Size = new Size(82, 22);
+            label5.Size = new Size(93, 22);
             label5.TabIndex = 1;
-            label5.Text = "Quantity:";
+            label5.Text = "Số Lượng:";
             // 
             // panel2
             // 
@@ -358,12 +359,12 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.Red;
+            label1.ForeColor = SystemColors.ActiveCaptionText;
             label1.Location = new Point(141, 13);
             label1.Name = "label1";
-            label1.Size = new Size(327, 45);
+            label1.Size = new Size(379, 45);
             label1.TabIndex = 0;
-            label1.Text = "EDIT PRODUCT";
+            label1.Text = "Thông Tin Sản Phẩm";
             // 
             // openFileDialog1
             // 
@@ -371,12 +372,17 @@
             // 
             // fEditProduct
             // 
+            AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancel;
             ClientSize = new Size(643, 560);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "fEditProduct";
-            Text = "Edit Product";
+            Text = "Chỉnh Sửa";
             FormClosing += fEditProduct_FormClosing;
             Load += fEditProduct_Load;
             panel1.ResumeLayout(false);

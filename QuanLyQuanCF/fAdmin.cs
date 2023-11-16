@@ -47,7 +47,7 @@ namespace QuanLyQuanCF
             fManageIngredient f = new fManageIngredient();
             f.MdiParent = this;
             f.Show();
-           
+
         }
 
         private void menuPreparationRecipe_Click(object sender, EventArgs e)
@@ -79,6 +79,10 @@ namespace QuanLyQuanCF
 
         private void fAdmin_Load(object sender, EventArgs e)
         {
+            /*            if (Utility.employee.RoleID == 1)
+                        {
+                            menuEmployee.Visible = false;
+                        }*/
             if (Utility.IsOpeningForm("fManagerOrderDetail"))
                 return;
             fManageOrderDetail f = new fManageOrderDetail();
@@ -93,6 +97,32 @@ namespace QuanLyQuanCF
             fManageOrder f = new fManageOrder();
             f.MdiParent = this;
             f.Show();
+        }
+
+        private void menuReport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Utility.IsOpeningForm("fReportCategoryProductGroupByCategory"))
+                return;
+            fReportCategoryProductGroupByCategory f =
+            new fReportCategoryProductGroupByCategory();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (Utility.IsOpeningForm("fReportIngredient"))
+                return;
+            fReportIngredient f =
+            new fReportIngredient();
+            f.MdiParent = this;
+            f.Show();
+
         }
     }
 }

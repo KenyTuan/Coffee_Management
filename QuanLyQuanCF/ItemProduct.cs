@@ -54,7 +54,7 @@ namespace QuanLyQuanCF
         [Category("Preparation Product")]
         public decimal Price
         {
-            set { size = value + ""; lblSize.Text = value + ""; }
+            set { size = value + ""; lblPrice.Text = value + ""; }
             get { return Convert.ToDecimal(size); }
         }
 

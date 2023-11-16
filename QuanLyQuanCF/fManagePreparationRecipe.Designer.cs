@@ -45,7 +45,7 @@
             label1.Location = new Point(0, 0);
             label1.Margin = new Padding(3, 10, 3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(800, 117);
+            label1.Size = new Size(920, 117);
             label1.TabIndex = 10;
             label1.Text = "CÔNG THỨC CHUẨN BỊ";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -56,7 +56,7 @@
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Location = new Point(0, 117);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(613, 615);
+            flowLayoutPanel1.Size = new Size(733, 615);
             flowLayoutPanel1.TabIndex = 11;
             // 
             // panel1
@@ -64,7 +64,7 @@
             panel1.Controls.Add(btnClose);
             panel1.Controls.Add(btnNew);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(619, 117);
+            panel1.Location = new Point(739, 117);
             panel1.Name = "panel1";
             panel1.Size = new Size(181, 615);
             panel1.TabIndex = 12;
@@ -98,7 +98,7 @@
             textBox1.Location = new Point(26, 71);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Tìm tên sản phẩm.....";
-            textBox1.Size = new Size(250, 34);
+            textBox1.Size = new Size(370, 34);
             textBox1.TabIndex = 13;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -106,7 +106,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 732);
+            CancelButton = btnClose;
+            ClientSize = new Size(920, 732);
             ControlBox = false;
             Controls.Add(textBox1);
             Controls.Add(panel1);

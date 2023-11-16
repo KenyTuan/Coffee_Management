@@ -85,7 +85,7 @@ namespace QuanLyQuanCF
                 cbCategories.ValueMember = "CategoryID";
                 cbCategories.DataSource = db.Category.Select(c => new { c.CategoryID, c.CategoryName }).ToList();
                 cbSize.SelectedIndex = 0;
-                txtID.Text = ++db.Product.Single(c => c.ProductID == db.Product.ToArray().Last().ProductID).ProductID + "";
+
             }
         }
 

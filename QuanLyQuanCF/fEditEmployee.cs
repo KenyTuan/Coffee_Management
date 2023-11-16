@@ -37,49 +37,76 @@ namespace QuanLyQuanCF
 
                 if (string.IsNullOrWhiteSpace(txtName.Text))
                 {
-                    toolTip1.Show("Hãy nhập tên khách hàng?", txtName, 0, 0, 1000);
+                    toolTip1.Show("Không Được để trống!", txtName, 0, 0, 1000);
+                    txtName.Focus();
                     return;
                 }
                 if (txtName.Text.Length > 255)
                 {
-                    toolTip1.Show("Tên khách hàng đã dài hơn 255 ký tự?", txtName, 0, 0, 1000);
+                    toolTip1.Show("Không được quá 255?", txtName, 0, 0, 1000);
+                    txtName.Focus();
+
                     return;
                 }
 
                 if (string.IsNullOrWhiteSpace(txtPhone.Text))
                 {
-                    toolTip1.Show("Hãy nhập số điện thoại?", txtPhone, 0, 0, 1000);
+                    toolTip1.Show("Không Được để trống?", txtPhone, 0, 0, 1000);
+                    txtPhone.Focus();
                     return;
                 }
 
-                if (Regex.IsMatch(txtPhone.Text, @"\d{10}") && txtPhone.Text.Length > 10)
+                if (!Regex.IsMatch(txtPhone.Text, "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$"))
                 {
                     toolTip1.Show("số điện thoại không hợp lệ?", txtPhone, 0, 0, 1000);
+                    txtPhone.Focus();
                     return;
                 }
 
                 if (string.IsNullOrWhiteSpace(txtAddress.Text))
                 {
                     toolTip1.Show("Hãy nhập địa chỉ?", txtAddress, 0, 0, 1000);
+                    txtAddress.Focus();
                     return;
                 }
                 if (txtAddress.Text.Length > 255)
                 {
                     toolTip1.Show("Địa chỉ đã dài hơn 255 ký tự?", txtAddress, 0, 0, 1000);
+                    txtAddress.Focus(); 
                     return;
                 }
 
                 if (dtkBirthday.Value.Date >= DateTime.Now.Date)
                 {
                     toolTip1.Show("Ngày Sinh không hợp lệ?", dtkBirthday, 0, 0, 1000);
+                    dtkBirthday.Focus();
                     return;
                 }
-                if (cbRole.SelectedValue != null)
+                if (cbRole.SelectedValue == null)
                 {
                     toolTip1.Show("Bạn Chưa Chọn Quyền Hạn?", cbRole, 0, 0, 1000);
                     cbRole.Focus();
                     return;
                 }
+                if (string.IsNullOrEmpty(txtEmail.Text))
+                {
+                    toolTip1.Show("Không Được để trống?", txtEmail, 0, 0, 1000);
+                    txtEmail.Focus();
+                    return;
+                }
+                if (Regex.IsMatch(txtEmail.Text,@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+                {
+                    toolTip1.Show("Không hợp lệ?", txtEmail, 0, 0, 1000);
+                    txtEmail.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(txtPassword.Text))
+                {
+                    toolTip1.Show("Không Được để trống?", txtPassword, 0, 0, 1000);
+                    txtPassword.Focus();
+                    return;
+                }
+
 
                 employee.EmployeeName = txtName.Text;
                 employee.Phone = txtPhone.Text;
@@ -93,13 +120,13 @@ namespace QuanLyQuanCF
 
                 db.SaveChanges();
 
-                toolTip1.Show("Saved Successfully", btnSave, 0, 0, 1000);
+                MessageBox.Show("Lưu Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
 
             }
             catch (Exception ex)
             {
-                toolTip1.Show("Saved Failed! Error " + ex.Message, btnSave, 0, 0, 1000);
+                MessageBox.Show("Lưu Thành Công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
         }
@@ -133,6 +160,11 @@ namespace QuanLyQuanCF
             cbGender.CheckState = employee.Gender == null ? CheckState.Indeterminate : (employee.Gender == true ? CheckState.Checked : CheckState.Unchecked);
             cbStatus.Checked = employee.Status;
 
+        }
+
+        private void fEditEmployee_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = false;
         }
     }
 }

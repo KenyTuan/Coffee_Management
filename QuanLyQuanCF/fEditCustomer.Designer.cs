@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fEditCustomer));
             panel1 = new Panel();
             panel4 = new Panel();
             btnClose = new Button();
@@ -82,7 +83,7 @@
             panel4.Location = new Point(20, 376);
             panel4.Name = "panel4";
             panel4.Size = new Size(461, 70);
-            panel4.TabIndex = 16;
+            panel4.TabIndex = 11;
             // 
             // btnClose
             // 
@@ -90,8 +91,8 @@
             btnClose.Location = new Point(246, 21);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(94, 29);
-            btnClose.TabIndex = 7;
-            btnClose.Text = "Cancel";
+            btnClose.TabIndex = 13;
+            btnClose.Text = "Đóng";
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
             // 
@@ -100,8 +101,8 @@
             btnSave.Location = new Point(96, 21);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
-            btnSave.TabIndex = 6;
-            btnSave.Text = "Save";
+            btnSave.TabIndex = 12;
+            btnSave.Text = "Xác Nhận";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
@@ -112,24 +113,23 @@
             panel6.Location = new Point(20, 300);
             panel6.Name = "panel6";
             panel6.Size = new Size(461, 70);
-            panel6.TabIndex = 15;
+            panel6.TabIndex = 9;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Location = new Point(3, 24);
             label5.Name = "label5";
-            label5.Size = new Size(62, 20);
+            label5.Size = new Size(60, 20);
             label5.TabIndex = 3;
-            label5.Text = "Address";
+            label5.Text = "Địa Chỉ:";
             // 
             // txtAddress
             // 
-            txtAddress.Location = new Point(96, 17);
+            txtAddress.Location = new Point(95, 21);
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(352, 27);
-            txtAddress.TabIndex = 5;
-            txtAddress.Validating += txtAddress_Validating;
+            txtAddress.TabIndex = 10;
             // 
             // panel3
             // 
@@ -140,7 +140,7 @@
             panel3.Location = new Point(20, 148);
             panel3.Name = "panel3";
             panel3.Size = new Size(461, 70);
-            panel3.TabIndex = 13;
+            panel3.TabIndex = 0;
             // 
             // numPoint
             // 
@@ -148,33 +148,33 @@
             numPoint.Location = new Point(385, 17);
             numPoint.Name = "numPoint";
             numPoint.Size = new Size(63, 27);
-            numPoint.TabIndex = 42;
+            numPoint.TabIndex = 5;
             // 
             // label7
             // 
             label7.AutoSize = true;
+            label7.Enabled = false;
             label7.Location = new Point(334, 20);
             label7.Name = "label7";
             label7.Size = new Size(45, 20);
             label7.TabIndex = 13;
-            label7.Text = "Point:";
+            label7.Text = "Điểm";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Location = new Point(3, 24);
             label3.Name = "label3";
-            label3.Size = new Size(52, 20);
+            label3.Size = new Size(79, 20);
             label3.TabIndex = 3;
-            label3.Text = "Name:";
+            label3.Text = "Tên Khách:";
             // 
             // txtName
             // 
-            txtName.Location = new Point(96, 17);
+            txtName.Location = new Point(88, 21);
             txtName.Name = "txtName";
             txtName.Size = new Size(232, 27);
-            txtName.TabIndex = 2;
-            txtName.Validating += txtName_Validating;
+            txtName.TabIndex = 1;
             // 
             // panel5
             // 
@@ -185,7 +185,7 @@
             panel5.Location = new Point(20, 224);
             panel5.Name = "panel5";
             panel5.Size = new Size(461, 70);
-            panel5.TabIndex = 15;
+            panel5.TabIndex = 6;
             // 
             // dtpBirthday
             // 
@@ -194,34 +194,32 @@
             dtpBirthday.Location = new Point(334, 24);
             dtpBirthday.Name = "dtpBirthday";
             dtpBirthday.Size = new Size(114, 27);
-            dtpBirthday.TabIndex = 4;
-            dtpBirthday.Validating += dtpBirthday_Validating;
+            dtpBirthday.TabIndex = 8;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(261, 24);
+            label6.Location = new Point(252, 29);
             label6.Name = "label6";
-            label6.Size = new Size(67, 20);
+            label6.Size = new Size(76, 20);
             label6.TabIndex = 11;
-            label6.Text = "Birthday:";
+            label6.Text = "Ngày Sinh";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(3, 24);
+            label4.Location = new Point(3, 29);
             label4.Name = "label4";
-            label4.Size = new Size(50, 20);
+            label4.Size = new Size(86, 20);
             label4.TabIndex = 3;
-            label4.Text = "Phone";
+            label4.Text = "Số Liên Lạc:";
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(96, 21);
+            txtPhone.Location = new Point(95, 26);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(136, 27);
-            txtPhone.TabIndex = 3;
-            txtPhone.Validating += txtPhone_Validating;
+            txtPhone.TabIndex = 7;
             // 
             // panel2
             // 
@@ -232,26 +230,26 @@
             panel2.Location = new Point(20, 72);
             panel2.Name = "panel2";
             panel2.Size = new Size(461, 70);
-            panel2.TabIndex = 12;
+            panel2.TabIndex = 2;
             // 
             // cbGender
             // 
             cbGender.AutoSize = true;
-            cbGender.Location = new Point(261, 24);
+            cbGender.Location = new Point(250, 22);
             cbGender.Name = "cbGender";
-            cbGender.Size = new Size(79, 24);
-            cbGender.TabIndex = 0;
-            cbGender.Text = "Gender";
+            cbGender.Size = new Size(90, 24);
+            cbGender.TabIndex = 3;
+            cbGender.Text = "Giới Tính";
             cbGender.UseVisualStyleBackColor = true;
             // 
             // cbStatus
             // 
             cbStatus.AutoSize = true;
-            cbStatus.Location = new Point(377, 23);
+            cbStatus.Location = new Point(357, 23);
             cbStatus.Name = "cbStatus";
-            cbStatus.Size = new Size(71, 24);
-            cbStatus.TabIndex = 1;
-            cbStatus.Text = "Status";
+            cbStatus.Size = new Size(100, 24);
+            cbStatus.TabIndex = 4;
+            cbStatus.Text = "Trạng Thái";
             cbStatus.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -259,9 +257,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(3, 23);
             label2.Name = "label2";
-            label2.Size = new Size(87, 20);
+            label2.Size = new Size(74, 20);
             label2.TabIndex = 2;
-            label2.Text = "CustomerID";
+            label2.Text = "Mã Khách";
             // 
             // txtID
             // 
@@ -275,20 +273,25 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(157, 14);
+            label1.Location = new Point(98, 19);
             label1.Name = "label1";
-            label1.Size = new Size(202, 35);
+            label1.Size = new Size(301, 35);
             label1.TabIndex = 0;
-            label1.Text = "Edit Customer";
+            label1.Text = "Thông Tin Thành Viên";
             // 
             // fEditCustomer
             // 
+            AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnClose;
             ClientSize = new Size(533, 502);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "fEditCustomer";
-            Text = "fEditCustomer";
+            Text = "Chỉnh Sửa";
             FormClosing += fEditCustomer_FormClosing;
             Load += fEditCustomer_Load;
             panel1.ResumeLayout(false);
