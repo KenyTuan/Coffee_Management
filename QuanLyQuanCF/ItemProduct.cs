@@ -24,17 +24,26 @@ namespace QuanLyQuanCF
         private decimal price;
         private String size;
         private String image;
-
+        private int count;
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < fManageOrderDetail.Instance.LsOrder.Items.Count; i++)
+            {
+                if (fManageOrderDetail.Instance.LsOrder.Items[i].SubItems[0].Text == title && fManageOrderDetail.Instance.LsOrder.Items[i].SubItems[1].Text == size)
+                {
+                    MessageBox.Show("Bạn Đã Chọn rồi!");
+                    return;
+                }
+            }
+
             decimal total = Convert.ToDecimal(numCount.Text) * Convert.ToDecimal(lblPrice.Text);
 
-            string[] result = { lblName.Text, lblSize.Text, numCount.Text,lblPrice.Text,total.ToString() };
+            string[] result = { lblName.Text, lblSize.Text, numCount.Text, lblPrice.Text, total.ToString() };
 
 
             fManageOrderDetail.Instance.LsOrder.Items.Add(new ListViewItem(result));
-            total += (fManageOrderDetail.Instance.Total.Text.IsNullOrEmpty())? 0 :Convert.ToDecimal(fManageOrderDetail.Instance.Total.Text) ;
-            fManageOrderDetail.Instance.Total.Text = total.ToString() ;
+            total += (fManageOrderDetail.Instance.Total.Text.IsNullOrEmpty()) ? 0 : Convert.ToDecimal(fManageOrderDetail.Instance.Total.Text);
+            fManageOrderDetail.Instance.Total.Text = total.ToString();
         }
 
         [Category("Preparation Product")]
@@ -43,6 +52,7 @@ namespace QuanLyQuanCF
             set { title = value; lblName.Text = value; }
             get { return title; }
         }
+
 
         [Category("Preparation Product")]
         public String SizeProduct
@@ -54,7 +64,7 @@ namespace QuanLyQuanCF
         [Category("Preparation Product")]
         public decimal Price
         {
-            set { size = value + ""; lblPrice.Text = value + ""; }
+            set { price = value; lblPrice.Text = value + ""; }
             get { return Convert.ToDecimal(size); }
         }
 
@@ -65,6 +75,12 @@ namespace QuanLyQuanCF
             get { return image; }
         }
 
+        [Category("Preparation Product")]
+        public int Count
+        {
+            set { count = value; lblCount.Text = value + ""; }
+            get { return count; }
+        }
 
         #endregion
 

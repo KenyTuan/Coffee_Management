@@ -195,7 +195,6 @@
             comboBox2.Size = new Size(128, 28);
             comboBox2.TabIndex = 3;
             comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
-            comboBox2.SelectionChangeCommitted += comboBox2_SelectionChangeCommitted;
             // 
             // label2
             // 
@@ -253,6 +252,7 @@
             lsIngredient.TabIndex = 7;
             lsIngredient.UseCompatibleStateImageBehavior = false;
             lsIngredient.View = View.Details;
+            lsIngredient.SelectedIndexChanged += lsIngredient_SelectedIndexChanged;
             // 
             // columnHeader1
             // 
@@ -261,7 +261,7 @@
             // 
             // columnHeader2
             // 
-            columnHeader2.Text = "Tên Nguyên Liệu";
+            columnHeader2.Text = "Số Lượng";
             columnHeader2.Width = 100;
             // 
             // fNewpreparationRecipe
@@ -274,6 +274,7 @@
             Controls.Add(label1);
             Name = "fNewpreparationRecipe";
             Text = "Tạo Công Thức";
+            Activated += fNewpreparationRecipe_Activated;
             Load += fNewpreparationRecipe_Load;
             panel1.ResumeLayout(false);
             panel5.ResumeLayout(false);

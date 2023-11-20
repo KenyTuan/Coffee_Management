@@ -55,6 +55,7 @@
             btnImport = new Button();
             btnExport = new Button();
             btnReport = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -336,6 +337,18 @@
             btnReport.UseVisualStyleBackColor = true;
             btnReport.Click += btnReport_Click;
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button1.Location = new Point(692, 122);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(150, 50);
+            button1.TabIndex = 7;
+            button1.Text = "Thêm ";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // fManageIngredient
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
@@ -343,6 +356,7 @@
             CancelButton = btnClose;
             ClientSize = new Size(1492, 666);
             ControlBox = false;
+            Controls.Add(button1);
             Controls.Add(btnReport);
             Controls.Add(panel1);
             Controls.Add(btnExport);
@@ -394,5 +408,6 @@
         private Label label3;
         private Button btnClose;
         private Button btnReport;
+        private Button button1;
     }
 }

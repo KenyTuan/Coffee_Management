@@ -1,4 +1,6 @@
-﻿namespace QuanLyQuanCF
+﻿using QuanLyQuanCF.Models;
+
+namespace QuanLyQuanCF
 {
     public partial class fLogin : Form
     {
@@ -9,7 +11,7 @@
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            /*if (txtUsername.Text == "")
+            if (txtUsername.Text == "")
             {
                 lblMessage.Text = "Bạn phải nhập id của bạn?";
                 txtUsername.Select();
@@ -28,13 +30,13 @@
                     {
                         Utility.employee = db.Employees.SingleOrDefault(e => e.Email == txtUsername.Text && e.Password == txtPassword.Text);
                         if (Utility.employee != null)
-                        {*/
+                        {
                             DialogResult = DialogResult.OK;
                             this.Hide();
                             fAdmin f = new fAdmin();
                             f.ShowDialog();
                             this.Show();
-                        /*}
+                        }
                         else
                             lblMessage.Text = "Sai tên người dùng hoặc mật khẩu";
                     }
@@ -43,9 +45,9 @@
                 {
                     lblMessage.Text = "Lỗi";
                 }
-            }*/
+            }
 
-            
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -62,5 +64,6 @@
             f.ShowDialog();
             this.Show();
         }
+
     }
 }

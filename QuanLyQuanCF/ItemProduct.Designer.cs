@@ -41,6 +41,8 @@
             label1 = new Label();
             panel3 = new Panel();
             lblName = new Label();
+            label3 = new Label();
+            lblCount = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbProduct).BeginInit();
             panel2.SuspendLayout();
@@ -101,6 +103,8 @@
             // 
             // panel4
             // 
+            panel4.Controls.Add(lblCount);
+            panel4.Controls.Add(label3);
             panel4.Controls.Add(numCount);
             panel4.Controls.Add(lblPrice);
             panel4.Controls.Add(lblSize);
@@ -114,12 +118,12 @@
             // 
             // numCount
             // 
-            numCount.Location = new Point(191, 21);
+            numCount.Location = new Point(185, 6);
             numCount.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
             numCount.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numCount.Name = "numCount";
             numCount.ReadOnly = true;
-            numCount.Size = new Size(96, 27);
+            numCount.Size = new Size(93, 27);
             numCount.TabIndex = 4;
             numCount.TextAlign = HorizontalAlignment.Center;
             numCount.Value = new decimal(new int[] { 1, 0, 0, 0 });
@@ -127,7 +131,7 @@
             // lblPrice
             // 
             lblPrice.AutoSize = true;
-            lblPrice.Location = new Point(101, 37);
+            lblPrice.Location = new Point(101, 44);
             lblPrice.Name = "lblPrice";
             lblPrice.Size = new Size(41, 20);
             lblPrice.TabIndex = 3;
@@ -136,7 +140,7 @@
             // lblSize
             // 
             lblSize.AutoSize = true;
-            lblSize.Location = new Point(101, 3);
+            lblSize.Location = new Point(101, 8);
             lblSize.Name = "lblSize";
             lblSize.Size = new Size(17, 20);
             lblSize.TabIndex = 2;
@@ -145,7 +149,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(13, 37);
+            label2.Location = new Point(13, 44);
             label2.Name = "label2";
             label2.Size = new Size(63, 20);
             label2.TabIndex = 1;
@@ -154,7 +158,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(13, 3);
+            label1.Location = new Point(13, 8);
             label1.Name = "label1";
             label1.Size = new Size(82, 20);
             label1.TabIndex = 0;
@@ -179,6 +183,24 @@
             lblName.TabIndex = 0;
             lblName.Text = "Sản Phẩm";
             lblName.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(167, 44);
+            label3.Name = "label3";
+            label3.Size = new Size(42, 20);
+            label3.TabIndex = 5;
+            label3.Text = "Còn: ";
+            // 
+            // lblCount
+            // 
+            lblCount.AutoSize = true;
+            lblCount.Location = new Point(215, 44);
+            lblCount.Name = "lblCount";
+            lblCount.Size = new Size(17, 20);
+            lblCount.TabIndex = 6;
+            lblCount.Text = "0";
             // 
             // ItemProduct
             // 
@@ -215,5 +237,7 @@
         private Label lblSize;
         private Label label2;
         private NumericUpDown numCount;
+        private Label lblCount;
+        private Label label3;
     }
 }

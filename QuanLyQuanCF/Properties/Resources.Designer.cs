@@ -173,6 +173,26 @@ namespace QuanLyQuanCF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_Report {
+            get {
+                object obj = ResourceManager.GetObject("icon_Report", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_Report_Product {
+            get {
+                object obj = ResourceManager.GetObject("icon_Report_Product", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_System {
             get {
                 object obj = ResourceManager.GetObject("icon_System", resourceCulture);

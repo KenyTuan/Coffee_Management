@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace QuanLyQuanCF
 {
@@ -48,9 +49,6 @@ namespace QuanLyQuanCF
             }
             var ingredient = EFDbContext.Ingredients.ToList();
 
-            comboBox1.DisplayMember = "IngredientName";
-            comboBox1.ValueMember = "IngredientID";
-            comboBox1.DataSource = EFDbContext.Ingredients.Select(io => new { io.IngredientID, io.IngredientName }).ToList();
 
         }
 
@@ -85,16 +83,14 @@ namespace QuanLyQuanCF
                 return;
             }
 
-            string[] row = new string[] { comboBox1.Text,textBox2.Text };
+            string[] row = new string[] { comboBox1.Text, textBox2.Text };
 
             lsIngredient.Items.Add(new ListViewItem(row));
 
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
+            fNewpreparationRecipe_Activated(sender, e);
 
         }
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -106,6 +102,8 @@ namespace QuanLyQuanCF
 
                     lsIngredient.Items.Remove(select);
                 }
+                fNewpreparationRecipe_Activated(sender, e);
+
             }
             else
             {
@@ -150,7 +148,7 @@ namespace QuanLyQuanCF
                 for (int i = 0; i < lsIngredient.Items.Count; i++)
                 {
                     var ingredient = new Ingredient();
-                    
+
 
                     ingredient = EFDbContext.Ingredients.Single(o => o.IngredientName.Contains(lsIngredient.Items[i].SubItems[0].Text));
 
@@ -178,7 +176,7 @@ namespace QuanLyQuanCF
 
                 fNewpreparationRecipe_Load(sender, e);
                 MessageBox.Show("Lưu Thành Công", "Thông Báo", MessageBoxButtons.OK);
-
+                Close();
 
             }
             catch (Exception ex)
@@ -188,9 +186,53 @@ namespace QuanLyQuanCF
             }
         }
 
-        private void comboBox2_SelectionChangeCommitted(object sender, EventArgs e)
+        private void fNewpreparationRecipe_Activated(object sender, EventArgs e)
         {
+            comboBox1.DisplayMember = "IngredientName";
+            comboBox1.ValueMember = "IngredientID";
+            var ingredients = EFDbContext.Ingredients.Select(io => new { io.IngredientID, io.IngredientName }).ToList();
+            var remainingIngredients = new List<object>();
 
+            foreach (var i in ingredients)
+            {
+                bool isFound = false;
+
+                for (int j = 0; j < lsIngredient.Items.Count; j++)
+                {
+                    if (string.Equals(i.IngredientName, lsIngredient.Items[j].SubItems[0].Text, StringComparison.OrdinalIgnoreCase))
+                    {
+                        isFound = true;
+                        break;
+                    }
+                }
+
+                if (!isFound)
+                {
+                    remainingIngredients.Add(i);
+                }
+            }
+
+            comboBox1.DataSource = remainingIngredients;
+            btnDelete.Enabled = false;
+            button3.Enabled = true;
+            btnAdd.Enabled = true;
+        }
+
+        private void lsIngredient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lsIngredient.SelectedItems.Count > 0)
+            {
+                textBox2.Text = lsIngredient.SelectedItems[0].SubItems[1].Text;
+                comboBox1.Text = lsIngredient.SelectedItems[0].SubItems[0].Text;
+                btnAdd.Enabled = false;
+                btnDelete.Enabled = true;
+                button3.Enabled = false;
+            }
+            else
+            {
+                textBox2.Text = string.Empty; // Xóa nội dung trong TextBox nếu không có item nào được chọn
+                comboBox1.Text = string.Empty; // Xóa nội dung trong ComboBox nếu không có item nào được chọn
+            }
         }
     }
 }

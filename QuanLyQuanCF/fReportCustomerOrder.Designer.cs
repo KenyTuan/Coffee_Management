@@ -28,13 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            cbOrder = new ComboBox();
             SuspendLayout();
+            // 
+            // cbOrder
+            // 
+            cbOrder.FormattingEnabled = true;
+            cbOrder.Location = new Point(637, 31);
+            cbOrder.Name = "cbOrder";
+            cbOrder.Size = new Size(151, 28);
+            cbOrder.TabIndex = 0;
+            cbOrder.SelectedIndexChanged += cbOrder_SelectedIndexChanged;
             // 
             // fReportCustomerOrder
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(cbOrder);
             Name = "fReportCustomerOrder";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Hóa Đơn";
@@ -44,5 +55,7 @@
         }
 
         #endregion
+
+        private ComboBox cbOrder;
     }
 }

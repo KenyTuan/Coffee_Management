@@ -229,14 +229,19 @@ namespace QuanLyQuanCF
 
         private void fManageIngredient_Load(object sender, EventArgs e)
         {
-/*            if (Utility.employee.RoleID == 1)
+            if (Utility.employee.RoleID == 2)
             {
                 panel1.Visible = false;
                 panel2.Visible = false;
                 dataGridView1.Columns[4].Visible = false;
                 dataGridView1.Columns[5].Visible = false;
 
-            }*/
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fManageIngredient_Load(sender, e);
         }
     }
 }
