@@ -106,7 +106,7 @@ namespace QuanLyQuanCF
                     txtEmail.Focus();
                     return;
                 }
-                if (Regex.IsMatch(txtEmail.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+                if (!Regex.IsMatch(txtEmail.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
                 {
                     toolTip1.Show("Không hợp lệ?", txtEmail, 0, 0, 1000);
                     txtEmail.Focus();
@@ -175,7 +175,7 @@ namespace QuanLyQuanCF
                 txtEmail.Focus();
                 return;
             }
-            if (Regex.IsMatch(txtEmail.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+            if (!Regex.IsMatch(txtEmail.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
             {
                 toolTip1.Show("Không hợp lệ?", txtEmail, 0, 0, 1000);
                 txtEmail.Focus();

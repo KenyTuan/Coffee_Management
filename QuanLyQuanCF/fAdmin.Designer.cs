@@ -31,17 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdmin));
             menuStrip1 = new MenuStrip();
             menuSystem = new ToolStripMenuItem();
-            menuOrderDetail = new ToolStripMenuItem();
             menuLsOrder = new ToolStripMenuItem();
             menuCategory = new ToolStripMenuItem();
             MenuCustomer = new ToolStripMenuItem();
             menuEmployee = new ToolStripMenuItem();
             menuProduct = new ToolStripMenuItem();
             menuPreparationRecipe = new ToolStripMenuItem();
-            menuReport = new ToolStripMenuItem();
-            toolStripMenuItem1 = new ToolStripMenuItem();
-            MenuLogout = new ToolStripMenuItem();
             menuIngredient = new ToolStripMenuItem();
+            menuReport = new ToolStripMenuItem();
+            menuReportProduct = new ToolStripMenuItem();
+            menuReportIngredient = new ToolStripMenuItem();
+            menuReportBill = new ToolStripMenuItem();
+            menuOrderCustomer = new ToolStripMenuItem();
+            MenuLogout = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,21 +61,12 @@
             // menuSystem
             // 
             menuSystem.AutoSize = false;
-            menuSystem.DropDownItems.AddRange(new ToolStripItem[] { menuOrderDetail });
-            menuSystem.Image = Properties.Resources.icon_System;
+            menuSystem.Image = Properties.Resources.icon_Order;
             menuSystem.Margin = new Padding(0, 5, 0, 5);
             menuSystem.Name = "menuSystem";
             menuSystem.Size = new Size(150, 50);
-            menuSystem.Text = "Hệ Thống";
-            // 
-            // menuOrderDetail
-            // 
-            menuOrderDetail.AutoSize = false;
-            menuOrderDetail.Image = Properties.Resources.icon_Order;
-            menuOrderDetail.Name = "menuOrderDetail";
-            menuOrderDetail.Size = new Size(200, 35);
-            menuOrderDetail.Text = "Gọi Món";
-            menuOrderDetail.Click += menuOrderDetail_Click;
+            menuSystem.Text = "Gọi Món";
+            menuSystem.Click += menuSystem_Click;
             // 
             // menuLsOrder
             // 
@@ -131,22 +124,56 @@
             menuPreparationRecipe.Text = "Công Thức Chuẩn Bị";
             menuPreparationRecipe.Click += menuPreparationRecipe_Click;
             // 
+            // menuIngredient
+            // 
+            menuIngredient.AutoSize = false;
+            menuIngredient.Image = Properties.Resources.icon_Ingredient;
+            menuIngredient.Name = "menuIngredient";
+            menuIngredient.Size = new Size(200, 35);
+            menuIngredient.Text = "Nguyên Liệu";
+            menuIngredient.Click += menuIngredient_Click;
+            // 
             // menuReport
             // 
             menuReport.AutoSize = false;
-            menuReport.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
+            menuReport.DropDownItems.AddRange(new ToolStripItem[] { menuReportProduct, menuReportIngredient, menuReportBill, menuOrderCustomer });
+            menuReport.Image = Properties.Resources.icon_Report;
             menuReport.Margin = new Padding(0, 5, 0, 5);
             menuReport.Name = "menuReport";
             menuReport.Size = new Size(150, 50);
-            menuReport.Text = "Report";
-            menuReport.Click += menuReport_Click;
+            menuReport.Text = "Báo Cáo";
             // 
-            // toolStripMenuItem1
+            // menuReportProduct
             // 
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(157, 26);
-            toolStripMenuItem1.Text = "Sản Phẩm";
-            toolStripMenuItem1.Click += toolStripMenuItem1_Click;
+            menuReportProduct.AutoSize = false;
+            menuReportProduct.Name = "menuReportProduct";
+            menuReportProduct.Size = new Size(200, 35);
+            menuReportProduct.Text = "Sản Phẩm";
+            menuReportProduct.Click += toolStripMenuItem1_Click;
+            // 
+            // menuReportIngredient
+            // 
+            menuReportIngredient.AutoSize = false;
+            menuReportIngredient.Name = "menuReportIngredient";
+            menuReportIngredient.Size = new Size(200, 35);
+            menuReportIngredient.Text = "Nguyên Liệu";
+            menuReportIngredient.Click += menuReportIngredient_Click;
+            // 
+            // menuReportBill
+            // 
+            menuReportBill.AutoSize = false;
+            menuReportBill.Name = "menuReportBill";
+            menuReportBill.Size = new Size(200, 35);
+            menuReportBill.Text = "In Bill";
+            menuReportBill.Click += menuReportBill_Click;
+            // 
+            // menuOrderCustomer
+            // 
+            menuOrderCustomer.AutoSize = false;
+            menuOrderCustomer.Name = "menuOrderCustomer";
+            menuOrderCustomer.Size = new Size(200, 35);
+            menuOrderCustomer.Text = "Lịch Sử Đặt";
+            menuOrderCustomer.Click += menuOrderCustomer_Click;
             // 
             // MenuLogout
             // 
@@ -157,15 +184,6 @@
             MenuLogout.Size = new Size(150, 50);
             MenuLogout.Text = "Đăng Xuất";
             MenuLogout.Click += MenuLogout_Click;
-            // 
-            // menuIngredient
-            // 
-            menuIngredient.AutoSize = false;
-            menuIngredient.Image = Properties.Resources.icon_Ingredient;
-            menuIngredient.Name = "menuIngredient";
-            menuIngredient.Size = new Size(200, 35);
-            menuIngredient.Text = "Nguyên Liệu";
-            menuIngredient.Click += menuIngredient_Click;
             // 
             // fAdmin
             // 
@@ -198,9 +216,11 @@
         private ToolStripMenuItem menuLsOrder;
         private ToolStripMenuItem menuPreparationRecipe;
         private ToolStripMenuItem menuEmployee;
-        private ToolStripMenuItem menuOrderDetail;
         private ToolStripMenuItem menuReport;
-        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem menuReportProduct;
         private ToolStripMenuItem menuIngredient;
+        private ToolStripMenuItem menuReportIngredient;
+        private ToolStripMenuItem menuReportBill;
+        private ToolStripMenuItem menuOrderCustomer;
     }
 }

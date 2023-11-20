@@ -30,9 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fEditrPeparationRecipe));
-            lsIngredient = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
             label1 = new Label();
             panel1 = new Panel();
             btnDelete = new Button();
@@ -47,42 +44,22 @@
             comboBox1 = new ComboBox();
             label3 = new Label();
             panel3 = new Panel();
+            label6 = new Label();
+            label5 = new Label();
+            label2 = new Label();
             lblSize = new Label();
             lblID = new Label();
             lblProduct = new Label();
             panel2 = new Panel();
             toolTip1 = new ToolTip(components);
+            lsIngredient = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
-            // 
-            // lsIngredient
-            // 
-            lsIngredient.Activation = ItemActivation.OneClick;
-            lsIngredient.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
-            lsIngredient.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lsIngredient.FullRowSelect = true;
-            lsIngredient.HoverSelection = true;
-            lsIngredient.Location = new Point(12, 82);
-            lsIngredient.Name = "lsIngredient";
-            lsIngredient.Size = new Size(354, 356);
-            lsIngredient.TabIndex = 1;
-            lsIngredient.UseCompatibleStateImageBehavior = false;
-            lsIngredient.View = View.Details;
-            lsIngredient.ItemCheck += lsIngredient_ItemCheck;
-            lsIngredient.SelectedIndexChanged += lsIngredient_SelectedIndexChanged;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "Tên Nguyên Liệu";
-            columnHeader1.Width = 250;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "Số Lượng";
-            columnHeader2.Width = 100;
             // 
             // label1
             // 
@@ -228,6 +205,9 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(label6);
+            panel3.Controls.Add(label5);
+            panel3.Controls.Add(label2);
             panel3.Controls.Add(lblSize);
             panel3.Controls.Add(lblID);
             panel3.Controls.Add(lblProduct);
@@ -236,6 +216,33 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(363, 103);
             panel3.TabIndex = 2;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(19, 15);
+            label6.Name = "label6";
+            label6.Size = new Size(37, 20);
+            label6.TabIndex = 5;
+            label6.Text = "Mã: ";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(177, 15);
+            label5.Name = "label5";
+            label5.Size = new Size(39, 20);
+            label5.TabIndex = 4;
+            label5.Text = "Size:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(19, 52);
+            label2.Name = "label2";
+            label2.Size = new Size(104, 20);
+            label2.TabIndex = 3;
+            label2.Text = "Tên Sản Phẩm:";
             // 
             // lblSize
             // 
@@ -249,7 +256,7 @@
             // lblID
             // 
             lblID.AutoSize = true;
-            lblID.Location = new Point(19, 15);
+            lblID.Location = new Point(62, 15);
             lblID.Name = "lblID";
             lblID.Size = new Size(37, 20);
             lblID.TabIndex = 1;
@@ -258,7 +265,7 @@
             // lblProduct
             // 
             lblProduct.AutoSize = true;
-            lblProduct.Location = new Point(19, 51);
+            lblProduct.Location = new Point(129, 52);
             lblProduct.Name = "lblProduct";
             lblProduct.Size = new Size(104, 20);
             lblProduct.TabIndex = 0;
@@ -272,18 +279,42 @@
             panel2.Size = new Size(363, 61);
             panel2.TabIndex = 1;
             // 
+            // lsIngredient
+            // 
+            lsIngredient.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
+            lsIngredient.FullRowSelect = true;
+            lsIngredient.GridLines = true;
+            lsIngredient.Location = new Point(8, 87);
+            lsIngredient.Name = "lsIngredient";
+            lsIngredient.Size = new Size(361, 351);
+            lsIngredient.TabIndex = 10;
+            lsIngredient.UseCompatibleStateImageBehavior = false;
+            lsIngredient.View = View.Details;
+            lsIngredient.SelectedIndexChanged += lsIngredient_SelectedIndexChanged;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Tên Nguyên Liệu";
+            columnHeader1.Width = 250;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Số Lượng";
+            columnHeader2.Width = 100;
+            // 
             // fEditrPeparationRecipe
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(738, 450);
+            Controls.Add(lsIngredient);
             Controls.Add(panel1);
             Controls.Add(label1);
-            Controls.Add(lsIngredient);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "fEditrPeparationRecipe";
             Text = "Chỉnh Sửa Công Thức Chuẩn Bị";
             WindowState = FormWindowState.Minimized;
+            Activated += fEditrPeparationRecipe_Activated;
             Load += fEditrPeparationRecipe_Load;
             panel1.ResumeLayout(false);
             panel5.ResumeLayout(false);
@@ -295,8 +326,6 @@
         }
 
         #endregion
-
-        private ListView lsIngredient;
         private Label label1;
         private Panel panel1;
         private Panel panel6;
@@ -312,11 +341,15 @@
         private Button btnAdd;
         private Button btnDelete;
         private ComboBox comboBox1;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
         private Label lblSize;
         private Label lblID;
         private Label lblProduct;
         private ToolTip toolTip1;
+        private Label label5;
+        private Label label2;
+        private Label label6;
+        private ListView lsIngredient;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
     }
 }

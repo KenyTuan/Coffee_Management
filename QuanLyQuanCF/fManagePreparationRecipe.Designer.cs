@@ -52,7 +52,7 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Location = new Point(0, 117);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -125,10 +125,10 @@
 
         #endregion
         private Label label1;
-        private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel1;
         private Button btnNew;
         private Button btnClose;
         private TextBox textBox1;
+        public static FlowLayoutPanel flowLayoutPanel1;
     }
 }

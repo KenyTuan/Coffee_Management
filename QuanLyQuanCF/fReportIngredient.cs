@@ -26,6 +26,8 @@ namespace QuanLyQuanCF
                 ProcessingMode = ProcessingMode.Local
             };
 
+
+
             reportViewer.LocalReport.DataSources.Add(
                 new ReportDataSource("ds_View_Ingredient", db.Ingredients.Select((p => new
                 {
@@ -39,6 +41,11 @@ namespace QuanLyQuanCF
             Controls.Add(reportViewer);
 
             reportViewer.RefreshReport();
+
+        }
+
+        private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

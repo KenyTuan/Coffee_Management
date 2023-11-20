@@ -28,22 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fReportCategoryProductGroupByCategory));
+            cbCategory = new ComboBox();
             SuspendLayout();
+            // 
+            // cbCategory
+            // 
+            cbCategory.FormattingEnabled = true;
+            cbCategory.Location = new Point(585, 2);
+            cbCategory.Name = "cbCategory";
+            cbCategory.Size = new Size(151, 28);
+            cbCategory.TabIndex = 1;
+            cbCategory.SelectedIndexChanged += cbCategory_SelectedIndexChanged;
             // 
             // fReportCategoryProductGroupByCategory
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(cbCategory);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "fReportCategoryProductGroupByCategory";
-            Text = "fReportCategoryProductGroupByCategory";
+            Text = "Xuất Danh Sách Sản Phẩm";
             WindowState = FormWindowState.Maximized;
             Load += fReportCategoryProductGroupByCategory_Load;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private ComboBox cbCategory;
     }
 }

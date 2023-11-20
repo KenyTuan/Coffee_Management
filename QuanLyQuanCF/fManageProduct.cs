@@ -26,12 +26,12 @@ namespace QuanLyQuanCF
 
         private void fManageProduct_Load(object sender, EventArgs e)
         {
-/*            if (Utility.employee.RoleID == 1)
+            if (Utility.employee.RoleID == 2)
             {
                 btnNew.Visible = false;
                 dataGridView2.Columns[8].Visible = false;
                 dataGridView2.Columns[9].Visible = false;
-            }*/
+            }
             using (var db = new EFDbContext())
             {
                 foreach (var item in db.Category.Select(c => new { c.CategoryName }).ToList())

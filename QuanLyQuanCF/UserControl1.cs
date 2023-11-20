@@ -21,6 +21,31 @@ namespace QuanLyQuanCF
         private String title;
         private ListViewItem list;
         private String image;
+        private long idProduct;
+        private fEditrPeparationRecipe fEditrPeparationRecipe;
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (Utility.IsOpeningForm("fEditpreparationRecipe"))
+                return;
+            var f = new fEditrPeparationRecipe(idProduct);
+            f.ShowDialog();
+            fManagePreparationRecipe.fManagePreparationRecipe_Load(sender,e);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        [Category("Preparation Recipe Props")]
+        public long IdProduct
+        {
+            set { idProduct = value; }
+            get { return idProduct; }
+        }
+
+
 
         [Category("Preparation Recipe Props")]
         public String Title
@@ -47,4 +72,5 @@ namespace QuanLyQuanCF
 
         #endregion
     }
+
 }

@@ -1,6 +1,6 @@
 ﻿namespace QuanLyQuanCF
 {
-    partial class fNewCategory
+    partial class fReportOrderCustomer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fReportOrderCustomer));
+            cbCustomer = new ComboBox();
             SuspendLayout();
             // 
-            // fNewCategory
+            // cbCustomer
+            // 
+            cbCustomer.FormattingEnabled = true;
+            cbCustomer.Location = new Point(625, 21);
+            cbCustomer.Name = "cbCustomer";
+            cbCustomer.Size = new Size(151, 28);
+            cbCustomer.TabIndex = 0;
+            cbCustomer.SelectedIndexChanged += cbCustomer_SelectedIndexChanged;
+            // 
+            // fReportOrderCustomer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(415, 403);
-            Name = "fNewCategory";
-            Text = "fNewCategory";
+            ClientSize = new Size(800, 450);
+            Controls.Add(cbCustomer);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "fReportOrderCustomer";
+            Text = "Danh sách đơn hàng Của Khách Hang";
+            WindowState = FormWindowState.Maximized;
+            Load += fReportOrderCustomer_Load;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private ComboBox cbCustomer;
     }
 }

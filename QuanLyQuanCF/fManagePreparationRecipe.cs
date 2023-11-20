@@ -15,7 +15,9 @@ namespace QuanLyQuanCF
     {
 
         UserControl1 userControl1;
-        string txtProduct;
+        public static string txtProduct;
+
+
         public fManagePreparationRecipe()
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace QuanLyQuanCF
                 return;
             fNewpreparationRecipe f = new fNewpreparationRecipe();
             f.ShowDialog();
-            Close();
+            fManagePreparationRecipe_Load(sender, e);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -43,12 +45,12 @@ namespace QuanLyQuanCF
             fManagePreparationRecipe_Load(sender, e);
         }
 
-        private void fManagePreparationRecipe_Load(object sender, EventArgs e)
+        public static void fManagePreparationRecipe_Load(object sender, EventArgs e)
         {
 
             using (var db = new EFDbContext())
             {
-                var products = db.Product.Where(p=> p.ProductName.Contains(txtProduct)).Select(p => new
+                var products = db.Product.Where(p => p.ProductName.Contains(txtProduct)).Select(p => new
                 {
                     p.ProductID,
                     p.ProductName,
@@ -69,14 +71,15 @@ namespace QuanLyQuanCF
 
                 int i = 0;
 
+                flowLayoutPanel1.Controls.Clear();
                 UserControl1[] userControl1s = new UserControl1[products.Count()];
                 foreach (var p in products)
                 {
                     userControl1s[i] = new UserControl1();
                     userControl1s[i].Title = p.ProductName + " " + p.ProductSize;
                     userControl1s[i].Image = Utility.ImagePath + p.ImageFile;
+                    userControl1s[i].IdProduct = p.ProductID;
 
-                    
 
                     foreach (var item in ingredientOrder)
                     {
@@ -87,11 +90,11 @@ namespace QuanLyQuanCF
 
                             userControl1s[i].List = new ListViewItem(data);
                         }
-                        
+
 
                     }
                     flowLayoutPanel1.Controls.Add(userControl1s[i++]);
-                    
+
                 }
 
             }

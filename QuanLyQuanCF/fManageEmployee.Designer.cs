@@ -47,6 +47,7 @@
             Status = new DataGridViewCheckBoxColumn();
             Edit = new DataGridViewButtonColumn();
             Delete = new DataGridViewButtonColumn();
+            button1 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -77,6 +78,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(button1);
             panel2.Controls.Add(btnNew);
             panel2.Controls.Add(txtNameEmployee);
             panel2.Dock = DockStyle.Top;
@@ -256,6 +258,17 @@
             Delete.Text = "Xóa";
             Delete.Width = 125;
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button1.Location = new Point(947, 29);
+            button1.Name = "button1";
+            button1.Size = new Size(120, 47);
+            button1.TabIndex = 7;
+            button1.Text = "Đóng";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // fManageEmployee
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
@@ -302,5 +315,6 @@
         private DataGridViewCheckBoxColumn Status;
         private DataGridViewButtonColumn Edit;
         private DataGridViewButtonColumn Delete;
+        private Button button1;
     }
 }

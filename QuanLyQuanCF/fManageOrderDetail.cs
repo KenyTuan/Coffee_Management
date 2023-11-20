@@ -81,7 +81,11 @@ namespace QuanLyQuanCF
 
         private void btnRest_Click(object sender, EventArgs e)
         {
+            fManageOrderDetail_Load(sender, e);
+           
+            txtTotal.Text = null;
             lsOrder.Items.Clear();
+            txtNameCustomer.Text = null;
         }
 
         private void btnPay_Click(object sender, EventArgs e)
@@ -138,7 +142,8 @@ namespace QuanLyQuanCF
                1000);
                 fManageOrderDetail_Load(sender,e);
                 txtTotal.Text = null;
-
+                lsOrder.Items.Clear();
+                txtNameCustomer.Text = null;
 
             }
             catch (Exception ex)
@@ -150,6 +155,7 @@ namespace QuanLyQuanCF
 
         private void fManageOrderDetail_Load(object sender, EventArgs e)
         {
+
             _obj = this;
 
             flowLayoutPanel1.Controls.Clear();
@@ -164,7 +170,7 @@ namespace QuanLyQuanCF
                 item_product[i].Price = productItem.Price;
                 item_product[i].SizeProduct = productItem.ProductSize;
                 item_product[i].Image = Utility.ImagePath + productItem.ImageFile;
-
+                item_product[i].Count = productItem.Quantity;
 
                 flowLayoutPanel1.Controls.Add(item_product[i++]);
             }
@@ -173,6 +179,7 @@ namespace QuanLyQuanCF
             cbCustomer.ValueMember = "CustomerID";
 
             cbCustomer.DataSource = db.Customers.Select(a => new { a.CustomerID, a.NameCustomer }).ToList();
+
 
 
 
@@ -187,5 +194,7 @@ namespace QuanLyQuanCF
         {
             txtNameCustomer.Text = cbCustomer.Text;
         }
+
+
     }
 }
